@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Gear_Editor
 {
-    public partial class MainForm : Form
+    public partial class GearCreationForm : Form
     {
-        public MainForm()
+        public GearCreationForm()
         {
             InitializeComponent();
         }
@@ -22,6 +22,15 @@ namespace Gear_Editor
         }
 
         private void btnAddGearBox_Click(object sender, EventArgs e)
+        {
+            GearBoxCreationForm newGearBox = new GearBoxCreationForm();
+            if (newGearBox.ShowDialog().Equals(DialogResult.OK)){
+                newGearBox.Close();
+            }
+
+        }
+
+        private void listGearBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

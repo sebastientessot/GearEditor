@@ -1,6 +1,6 @@
 ﻿namespace Gear_Editor
 {
-    partial class MainForm
+    partial class GearCreationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,14 +33,14 @@
             this.btnAddGearBox = new System.Windows.Forms.Button();
             this.btnRemoveGearBox = new System.Windows.Forms.Button();
             this.btnEditGearBox = new System.Windows.Forms.Button();
-            this.menuStripForGearBoxCreation = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createAGearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createAShaftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createAMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblGearBoxCaracteristics = new System.Windows.Forms.Label();
-            this.menuStripForGearBoxCreation.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // listGearBox
@@ -50,19 +50,20 @@
             this.listGearBox.Name = "listGearBox";
             this.listGearBox.Size = new System.Drawing.Size(150, 199);
             this.listGearBox.TabIndex = 0;
+            this.listGearBox.SelectedIndexChanged += new System.EventHandler(this.listGearBox_SelectedIndexChanged);
             // 
             // lblListGearBox
             // 
             this.lblListGearBox.AutoSize = true;
             this.lblListGearBox.Location = new System.Drawing.Point(26, 42);
             this.lblListGearBox.Name = "lblListGearBox";
-            this.lblListGearBox.Size = new System.Drawing.Size(82, 13);
+            this.lblListGearBox.Size = new System.Drawing.Size(113, 13);
             this.lblListGearBox.TabIndex = 1;
-            this.lblListGearBox.Text = "Your gears are :";
+            this.lblListGearBox.Text = "Your gears boxes are :";
             // 
             // btnAddGearBox
             // 
-            this.btnAddGearBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddGearBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddGearBox.Location = new System.Drawing.Point(29, 264);
             this.btnAddGearBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.btnAddGearBox.Name = "btnAddGearBox";
@@ -94,16 +95,16 @@
             this.btnEditGearBox.Text = "✎";
             this.btnEditGearBox.UseVisualStyleBackColor = true;
             // 
-            // menuStripForGearBoxCreation
+            // menuStrip
             // 
-            this.menuStripForGearBoxCreation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.createToolStripMenuItem});
-            this.menuStripForGearBoxCreation.Location = new System.Drawing.Point(0, 0);
-            this.menuStripForGearBoxCreation.Name = "menuStripForGearBoxCreation";
-            this.menuStripForGearBoxCreation.Size = new System.Drawing.Size(458, 24);
-            this.menuStripForGearBoxCreation.TabIndex = 5;
-            this.menuStripForGearBoxCreation.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(458, 24);
+            this.menuStrip.TabIndex = 5;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // menuToolStripMenuItem
             // 
@@ -126,7 +127,6 @@
             this.createAGearToolStripMenuItem.Name = "createAGearToolStripMenuItem";
             this.createAGearToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.createAGearToolStripMenuItem.Text = "Create a Gear";
-            this.createAGearToolStripMenuItem.Click += new System.EventHandler(this.createAGearToolStripMenuItem_Click);
             // 
             // createAShaftToolStripMenuItem
             // 
@@ -142,14 +142,13 @@
             // 
             // lblGearBoxCaracteristics
             // 
-            this.lblGearBoxCaracteristics.AutoSize = true;
             this.lblGearBoxCaracteristics.Location = new System.Drawing.Point(217, 58);
             this.lblGearBoxCaracteristics.Name = "lblGearBoxCaracteristics";
-            this.lblGearBoxCaracteristics.Size = new System.Drawing.Size(174, 13);
+            this.lblGearBoxCaracteristics.Size = new System.Drawing.Size(174, 199);
             this.lblGearBoxCaracteristics.TabIndex = 6;
-            this.lblGearBoxCaracteristics.Text = "Some text giving the characteristics";
+            this.lblGearBoxCaracteristics.Text = "Once you select a GearBox, the characteristics will appear here...";
             // 
-            // MainForm
+            // GearCreationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,13 +159,13 @@
             this.Controls.Add(this.btnAddGearBox);
             this.Controls.Add(this.lblListGearBox);
             this.Controls.Add(this.listGearBox);
-            this.Controls.Add(this.menuStripForGearBoxCreation);
-            this.MainMenuStrip = this.menuStripForGearBoxCreation;
-            this.Name = "MainForm";
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
+            this.Name = "GearCreationForm";
             this.Text = "Main Window";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.menuStripForGearBoxCreation.ResumeLayout(false);
-            this.menuStripForGearBoxCreation.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,7 +178,7 @@
         private System.Windows.Forms.Button btnAddGearBox;
         private System.Windows.Forms.Button btnRemoveGearBox;
         private System.Windows.Forms.Button btnEditGearBox;
-        private System.Windows.Forms.MenuStrip menuStripForGearBoxCreation;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createAGearToolStripMenuItem;

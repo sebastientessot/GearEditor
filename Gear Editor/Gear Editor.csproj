@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GearForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GearForm.Designer.cs">
+      <DependentUpon>GearForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GearBoxCreationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GearForm.resx">
+      <DependentUpon>GearForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GearBoxCreationForm.resx">
       <DependentUpon>GearBoxCreationForm.cs</DependentUpon>
     </EmbeddedResource>
