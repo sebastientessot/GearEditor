@@ -5,20 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gear_Editor
+namespace GearEditor
 {
-    public partial class GearForm : Form
+    public partial class MaterialCreationForm : Form
     {
-        public GearForm()
+        public MaterialCreationForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

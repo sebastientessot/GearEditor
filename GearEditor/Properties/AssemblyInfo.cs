@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Gear Editor")]
+[assembly: AssemblyTitle("GearEditor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Jönköping University")]
-[assembly: AssemblyProduct("Gear Editor")]
-[assembly: AssemblyCopyright("Copyright © Jönköping University 2012")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("GearEditor")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fa74ae58-89ac-4b10-b891-68f69f2007ba")]
+[assembly: Guid("a7f647a1-2114-4f5e-8c43-73d12e5cb546")]
 
 // Version information for an assembly consists of the following four values:
 //
