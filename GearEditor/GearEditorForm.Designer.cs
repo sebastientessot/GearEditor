@@ -85,6 +85,7 @@
             this.btnEdit.Text = "✎";
             this.btnEdit.UseCompatibleTextRendering = true;
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Enabled = false; 
             // 
             // btnRemove
             // 
@@ -99,6 +100,7 @@
             this.btnRemove.Text = "-";
             this.btnRemove.UseCompatibleTextRendering = true;
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Enabled = false; 
             // 
             // btnAdd
             // 

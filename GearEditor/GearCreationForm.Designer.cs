@@ -44,6 +44,8 @@
             this.btnShaft = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.txtMaterial = new System.Windows.Forms.TextBox();
+            this.txtShaft = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numAlpha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numGearModule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTorque)).BeginInit();
@@ -52,13 +54,13 @@
             // 
             // btnSave
             // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.Location = new System.Drawing.Point(12, 276);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -69,6 +71,7 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblAlpha
             // 
@@ -157,7 +160,7 @@
             this.btnMaterial.Location = new System.Drawing.Point(121, 159);
             this.btnMaterial.Name = "btnMaterial";
             this.btnMaterial.Size = new System.Drawing.Size(83, 23);
-            this.btnMaterial.TabIndex = 13;
+            this.btnMaterial.TabIndex = 26;
             this.btnMaterial.Text = "Choose...";
             this.btnMaterial.UseVisualStyleBackColor = true;
             this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
@@ -167,7 +170,7 @@
             this.btnShaft.Location = new System.Drawing.Point(121, 130);
             this.btnShaft.Name = "btnShaft";
             this.btnShaft.Size = new System.Drawing.Size(83, 23);
-            this.btnShaft.TabIndex = 14;
+            this.btnShaft.TabIndex = 25;
             this.btnShaft.Text = "Choose...";
             this.btnShaft.UseVisualStyleBackColor = true;
             this.btnShaft.Click += new System.EventHandler(this.btnShaft_Click);
@@ -188,11 +191,31 @@
             this.txtName.Size = new System.Drawing.Size(83, 20);
             this.txtName.TabIndex = 16;
             // 
+            // txtMaterial
+            // 
+            this.txtMaterial.Location = new System.Drawing.Point(121, 160);
+            this.txtMaterial.Name = "txtMaterial";
+            this.txtMaterial.ReadOnly = true;
+            this.txtMaterial.Size = new System.Drawing.Size(67, 20);
+            this.txtMaterial.TabIndex = 33;
+            this.txtMaterial.Visible = false;
+            // 
+            // txtShaft
+            // 
+            this.txtShaft.Location = new System.Drawing.Point(121, 131);
+            this.txtShaft.Name = "txtShaft";
+            this.txtShaft.ReadOnly = true;
+            this.txtShaft.Size = new System.Drawing.Size(67, 20);
+            this.txtShaft.TabIndex = 28;
+            this.txtShaft.Visible = false;
+            // 
             // GearCreationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(216, 311);
+            this.Controls.Add(this.txtShaft);
+            this.Controls.Add(this.txtMaterial);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnShaft);
@@ -239,5 +262,7 @@
         private System.Windows.Forms.Button btnShaft;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtMaterial;
+        private System.Windows.Forms.TextBox txtShaft;
     }
 }

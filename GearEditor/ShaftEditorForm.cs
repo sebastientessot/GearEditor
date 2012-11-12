@@ -50,5 +50,13 @@ namespace GearEditor
                 listShaft.Items.Add(gb);
             }
         }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            if (listShaft.SelectedItems.Count > 0)
+            {
+                GearCreationForm.sTemp = (Shaft)listShaft.SelectedItems[0];
+            }
+        }
     }
 }

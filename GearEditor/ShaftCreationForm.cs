@@ -36,5 +36,10 @@ namespace GearEditor
                 // Ajouter le nom du Material
             }
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

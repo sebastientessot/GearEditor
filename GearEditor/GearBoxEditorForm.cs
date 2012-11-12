@@ -61,6 +61,7 @@ namespace GearEditor
             this.Close(); 
         }
 
+
         /*
          * No Event Handler Methods
          * 
@@ -92,7 +93,9 @@ namespace GearEditor
             }
             refreshList();
             treeViewGearBox.Nodes.Clear();
-            propertyGridGearBox.SelectedObject = null;  
+            propertyGridGearBox.SelectedObject = null; 
+            this.btnRemove.Enabled = false;
+            this.btnEdit.Enabled = false;
         }
     }
 }
