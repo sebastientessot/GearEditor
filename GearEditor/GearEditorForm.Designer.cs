@@ -85,7 +85,7 @@
             this.btnEdit.Text = "✎";
             this.btnEdit.UseCompatibleTextRendering = true;
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Enabled = false; 
+            this.btnEdit.Enabled = false;
             // 
             // btnRemove
             // 
@@ -100,7 +100,7 @@
             this.btnRemove.Text = "-";
             this.btnRemove.UseCompatibleTextRendering = true;
             this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Enabled = false; 
+            this.btnRemove.Enabled = false;
             // 
             // btnAdd
             // 
@@ -128,8 +128,8 @@
             // 
             // listGear
             // 
-            this.listGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listGear.DisplayMember = "Name";
             this.listGear.FormattingEnabled = true;
@@ -142,8 +142,8 @@
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer2.Location = new System.Drawing.Point(-1, 0);
             this.splitContainer2.Name = "splitContainer2";
@@ -162,8 +162,8 @@
             // 
             // treeViewGear
             // 
-            this.treeViewGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.treeViewGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewGear.Location = new System.Drawing.Point(3, 3);
             this.treeViewGear.Name = "treeViewGear";
@@ -173,8 +173,8 @@
             // 
             // propertyGridGear
             // 
-            this.propertyGridGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.propertyGridGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.propertyGridGear.Location = new System.Drawing.Point(4, 3);
             this.propertyGridGear.Name = "propertyGridGear";
@@ -203,7 +203,7 @@
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            this.btnSelect.Enabled = false; 
+            this.btnSelect.Enabled = false;
             // 
             // GearEditorForm
             // 

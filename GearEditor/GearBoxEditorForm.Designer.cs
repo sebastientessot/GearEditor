@@ -85,7 +85,7 @@
             this.btnEdit.Text = "✎";
             this.btnEdit.UseCompatibleTextRendering = true;
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Enabled = false; 
+            this.btnEdit.Enabled = false;
             // 
             // btnRemove
             // 
@@ -101,7 +101,7 @@
             this.btnRemove.UseCompatibleTextRendering = true;
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            this.btnRemove.Enabled = false; 
+            this.btnRemove.Enabled = false;
             // 
             // btnAdd
             // 
@@ -129,8 +129,8 @@
             // 
             // listGearBox
             // 
-            this.listGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listGearBox.DisplayMember = "Name";
             this.listGearBox.FormattingEnabled = true;
@@ -143,8 +143,8 @@
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer2.Location = new System.Drawing.Point(-1, 0);
             this.splitContainer2.Name = "splitContainer2";
@@ -163,8 +163,8 @@
             // 
             // treeViewGearBox
             // 
-            this.treeViewGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.treeViewGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewGearBox.Location = new System.Drawing.Point(3, 3);
             this.treeViewGearBox.Name = "treeViewGearBox";
@@ -174,8 +174,8 @@
             // 
             // propertyGridGearBox
             // 
-            this.propertyGridGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.propertyGridGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.propertyGridGearBox.Enabled = false;
             this.propertyGridGearBox.Location = new System.Drawing.Point(4, 3);

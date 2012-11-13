@@ -18,45 +18,54 @@ namespace GearEditor
         private Gear _inputGear;
         private Gear _outputGear;
 
-        public String Name {
+        public String Name
+        {
             get { return _name; }
             set { _name = value; }
         }
 
-        public Double Alpha {
+        public Double Alpha
+        {
             get { return _alpha; }
             set { _alpha = value; }
         }
 
-        public Double AxesDistance {
+        public Double AxesDistance
+        {
             get { return _axesDistance; }
             set { _axesDistance = value; }
         }
 
-        public Double GearModule {
+        public Double GearModule
+        {
             get { return _gearModule; }
             set { _gearModule = value; }
         }
 
-        public Double InputTorque {
+        public Double InputTorque
+        {
             get { return _inputTorque; }
             set { _inputTorque = value; }
         }
 
-        public Double OutputTorque {
+        public Double OutputTorque
+        {
             get { return _outputTorque; }
             set { _outputTorque = value; }
         }
-        public Double TorqueRatio{
+        public Double TorqueRatio
+        {
             get { return _torqueRatio; }
             set { _torqueRatio = value; }
         }
-        public Gear InputGear {
+        public Gear InputGear
+        {
             get { return _inputGear; }
             set { _inputGear = value; }
         }
 
-        public Gear OutputGear {
+        public Gear OutputGear
+        {
             get { return _outputGear; }
             set { _outputGear = value; }
         }

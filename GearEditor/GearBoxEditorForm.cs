@@ -15,13 +15,13 @@ namespace GearEditor
         /**
          * Contructor 
          */
- 
+
         public GearBoxEditorForm()
         {
             InitializeComponent();
             btnSelect.Hide();
             btnCancel.Hide();
-            refreshList(); 
+            refreshList();
         }
 
 
@@ -40,12 +40,13 @@ namespace GearEditor
 
         private void listGearBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listGearBox.SelectedItems.Count>0){
-                treeViewGearBox.Nodes.Clear(); 
+            if (listGearBox.SelectedItems.Count > 0)
+            {
+                treeViewGearBox.Nodes.Clear();
                 treeViewGearBox.Nodes.Add(Util.fillTreeView(listGearBox.SelectedItems[0]));
                 propertyGridGearBox.SelectedObject = listGearBox.SelectedItems[0];
                 btnEdit.Enabled = true;
-                btnRemove.Enabled = true; 
+                btnRemove.Enabled = true;
             }
         }
 
@@ -58,7 +59,7 @@ namespace GearEditor
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
 
@@ -78,22 +79,23 @@ namespace GearEditor
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
- 
+
             if (listGearBox.SelectedItems.Count > 0)
             {
                 GearBox gearBoxToDelete = new GearBox();
-                gearBoxToDelete = (GearBox) listGearBox.SelectedItems[0];
-                foreach(GearBox gb in Program.gearBoxList)
+                gearBoxToDelete = (GearBox)listGearBox.SelectedItems[0];
+                foreach (GearBox gb in Program.gearBoxList)
                 {
-                    if(gb.Equals(gearBoxToDelete)){
-                        gearBoxToDelete = gb; 
+                    if (gb.Equals(gearBoxToDelete))
+                    {
+                        gearBoxToDelete = gb;
                     }
                 }
-                Program.gearBoxList.Remove(gearBoxToDelete); 
+                Program.gearBoxList.Remove(gearBoxToDelete);
             }
             refreshList();
             treeViewGearBox.Nodes.Clear();
-            propertyGridGearBox.SelectedObject = null; 
+            propertyGridGearBox.SelectedObject = null;
             this.btnRemove.Enabled = false;
             this.btnEdit.Enabled = false;
         }

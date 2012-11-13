@@ -43,19 +43,21 @@ namespace GearEditor
             {
                 Program.gearBoxList.Add(gb);
                 DialogResult = DialogResult.OK;
-            }else{
-                if(gb.Name == "")
+            }
+            else
+            {
+                if (gb.Name == "")
                     MessageBox.Show("You have to add a Name to your gear box", "Impossible to save the gear box", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else if(gb.InputGear == null)
+                else if (gb.InputGear == null)
                     MessageBox.Show("You have to add a Input Gear to your gear box", "Impossible to save the gear box", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                     MessageBox.Show("You have to add a Output Gear to your gear box", "Impossible to save the gear box", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
         private void btnInputGear_Click(object sender, EventArgs e)
@@ -71,7 +73,7 @@ namespace GearEditor
                 txtInputGear.Visible = true;
                 btnInputGear.Text = "...";
                 btnInputGear.Size = btnSize;
-                btnInputGear.Location = new Point(188,191);
+                btnInputGear.Location = new Point(188, 191);
 
 
             }

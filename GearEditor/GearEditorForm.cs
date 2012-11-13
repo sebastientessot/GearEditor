@@ -18,7 +18,7 @@ namespace GearEditor
         public GearEditorForm()
         {
             InitializeComponent();
-            refreshList(); 
+            refreshList();
         }
 
         /**
@@ -40,18 +40,18 @@ namespace GearEditor
         {
             if (listGear.SelectedItems.Count > 0)
             {
-                treeViewGear.Nodes.Clear(); 
+                treeViewGear.Nodes.Clear();
                 treeViewGear.Nodes.Add(Util.fillTreeView(listGear.SelectedItems[0]));
                 propertyGridGear.SelectedObject = listGear.SelectedItems[0];
                 btnEdit.Enabled = true;
                 btnRemove.Enabled = true;
-                btnSelect.Enabled = true; 
+                btnSelect.Enabled = true;
             }
         }
 
         private void treeViewGear_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            propertyGridGear.SelectedObject = treeViewGear.SelectedNode.Tag; 
+            propertyGridGear.SelectedObject = treeViewGear.SelectedNode.Tag;
         }
 
 
@@ -59,8 +59,8 @@ namespace GearEditor
         {
             if (listGear.SelectedItems.Count > 0)
             {
-                GearBoxCreationForm.gTemp = (Gear) listGear.SelectedItems[0];
-            }    
+                GearBoxCreationForm.gTemp = (Gear)listGear.SelectedItems[0];
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -83,8 +83,8 @@ namespace GearEditor
             treeViewGear.Nodes.Clear();
             propertyGridGear.SelectedObject = null;
             btnRemove.Enabled = false;
-            btnEdit.Enabled = false; 
-            btnSelect.Enabled = false; 
+            btnEdit.Enabled = false;
+            btnSelect.Enabled = false;
         }
 
         /*

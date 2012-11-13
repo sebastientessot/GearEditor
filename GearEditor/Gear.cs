@@ -14,7 +14,7 @@ namespace GearEditor
         Double _torque;
         Shaft _shaft;
         Double _wantedRadius;
-        String _name; 
+        String _name;
 
         //Calculated values
         Double _z;
@@ -24,7 +24,8 @@ namespace GearEditor
         Double _r_pitch;
         Double _r_top;
 
-        public Double Alpha {
+        public Double Alpha
+        {
             get { return _alpha; }
             set { _alpha = value; }
         }

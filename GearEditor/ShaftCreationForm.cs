@@ -14,14 +14,14 @@ namespace GearEditor
     {
         Material material;
         public static Material mTemp;
-        Size btnSize; 
+        Size btnSize;
 
         public ShaftCreationForm()
         {
             InitializeComponent();
             btnSize = new Size();
             btnSize.Width = 26;
-            btnSize.Height = 22; 
+            btnSize.Height = 22;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace GearEditor
             MaterialEditorForm materialEditor = new MaterialEditorForm();
             if (materialEditor.ShowDialog() == DialogResult.OK)
             {
-             
+
                 // Ajouter le nom du Material
                 material = mTemp;
 
@@ -49,7 +49,7 @@ namespace GearEditor
                 btnMaterial.Text = "...";
                 btnMaterial.Size = btnSize;
                 btnMaterial.Location = new Point(186, 134);
-        
+
             }
         }
 
@@ -80,7 +80,7 @@ namespace GearEditor
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
     }
 }

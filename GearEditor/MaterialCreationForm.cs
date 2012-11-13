@@ -23,7 +23,7 @@ namespace GearEditor
             m.Name = txtName.Text;
             m.Density = Convert.ToDouble(numDensity.Value);
             m.yieldStress = Convert.ToDouble(numYieldStress.Value);
-            m.youngsModulus = Convert.ToDouble(numYoungModulus.Value); 
+            m.youngsModulus = Convert.ToDouble(numYoungModulus.Value);
 
             if (m.Name != "")
             {
@@ -32,14 +32,14 @@ namespace GearEditor
             }
             else
             {
-                 MessageBox.Show("You have to add a Name to your Material", "Impossible to save the gear", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+                MessageBox.Show("You have to add a Name to your Material", "Impossible to save the gear", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
     }
 }

@@ -14,14 +14,16 @@ namespace GearEditor
         Double _keyCutLength;
         Material _material;
 
-        public String Name {
+        public String Name
+        {
             get { return _name; }
             set { _name = value; }
         }
 
-        public Double Diameter { 
-            get { return _diameter;}
-            set { _diameter = value;}
+        public Double Diameter
+        {
+            get { return _diameter; }
+            set { _diameter = value; }
         }
 
         public Double KeyCutWidth

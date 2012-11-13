@@ -18,17 +18,20 @@ namespace GearEditor
             set { _name = value; }
         }
 
-        public Double Density {
+        public Double Density
+        {
             get { return _density; }
             set { _density = value; }
         }
 
-        public Double yieldStress {
+        public Double yieldStress
+        {
             get { return _yieldStress; }
             set { _yieldStress = value; }
         }
 
-        public Double youngsModulus{
+        public Double youngsModulus
+        {
             get { return _youngsModulus; }
             set { _youngsModulus = value; }
         }

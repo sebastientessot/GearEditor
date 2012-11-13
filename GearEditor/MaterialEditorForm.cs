@@ -32,11 +32,11 @@ namespace GearEditor
             MaterialCreationForm materialCreation = new MaterialCreationForm();
             if (materialCreation.ShowDialog() == DialogResult.OK)
             {
-                refreshList(); 
+                refreshList();
             }
         }
 
-        
+
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
@@ -56,17 +56,17 @@ namespace GearEditor
                 propertyGridMaterial.SelectedObject = listMaterial.SelectedItems[0];
                 btnEdit.Enabled = true;
                 btnRemove.Enabled = true;
-                btnSelect.Enabled = true; 
+                btnSelect.Enabled = true;
             }
         }
 
-       /*
-       * No Event Handler Methods
-       * 
-       */
+        /*
+        * No Event Handler Methods
+        * 
+        */
         private void refreshList()
         {
-            listMaterial.Items.Clear(); 
+            listMaterial.Items.Clear();
             foreach (Material gb in Program.materialList)
             {
                 listMaterial.Items.Add(gb);
@@ -76,7 +76,7 @@ namespace GearEditor
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-             if (listMaterial.SelectedItems.Count > 0)
+            if (listMaterial.SelectedItems.Count > 0)
             {
                 Material materialToDelete = new Material();
                 materialToDelete = (Material)listMaterial.SelectedItems[0];
@@ -93,7 +93,7 @@ namespace GearEditor
             propertyGridMaterial.SelectedObject = null;
             btnRemove.Enabled = false;
             btnEdit.Enabled = false;
-            btnSelect.Enabled = false; 
+            btnSelect.Enabled = false;
         }
     }
 }

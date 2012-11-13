@@ -18,7 +18,7 @@ namespace GearEditor
         public ShaftEditorForm()
         {
             InitializeComponent();
-            refreshList(); 
+            refreshList();
         }
 
 
@@ -30,10 +30,10 @@ namespace GearEditor
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ShaftCreationForm shaftCreation = new ShaftCreationForm(); 
-            if(shaftCreation.ShowDialog()==DialogResult.OK)
+            ShaftCreationForm shaftCreation = new ShaftCreationForm();
+            if (shaftCreation.ShowDialog() == DialogResult.OK)
             {
-                refreshList(); 
+                refreshList();
             }
         }
 
@@ -41,18 +41,18 @@ namespace GearEditor
         {
             if (listShaft.SelectedItems.Count > 0)
             {
-                treeViewShaft.Nodes.Clear(); 
+                treeViewShaft.Nodes.Clear();
                 treeViewShaft.Nodes.Add(Util.fillTreeView(listShaft.SelectedItems[0]));
                 propertyGridShaft.SelectedObject = listShaft.SelectedItems[0];
                 btnEdit.Enabled = true;
                 btnRemove.Enabled = true;
-                btnSelect.Enabled = true; 
+                btnSelect.Enabled = true;
             }
         }
 
         private void treeViewShaft_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            propertyGridShaft.SelectedObject = treeViewShaft.SelectedNode.Tag; 
+            propertyGridShaft.SelectedObject = treeViewShaft.SelectedNode.Tag;
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace GearEditor
             propertyGridShaft.SelectedObject = null;
             btnRemove.Enabled = false;
             btnEdit.Enabled = false;
-            btnSelect.Enabled = false; 
+            btnSelect.Enabled = false;
         }
     }
 }

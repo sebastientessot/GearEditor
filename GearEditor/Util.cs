@@ -18,7 +18,7 @@ namespace GearEditor
                 GearBox gb = (GearBox)o;
                 n2.Name = "GearBox";
                 n2.Text = gb.Name;
-                n2.Tag = gb; 
+                n2.Tag = gb;
 
                 n2.Nodes.Add(fillTreeView(gb.InputGear));
                 n2.Nodes.Add(fillTreeView(gb.OutputGear));
@@ -29,7 +29,7 @@ namespace GearEditor
                 Gear g = (Gear)o;
                 n2.Name = "Gear";
                 n2.Text = g.Name;
-                n2.Tag = g; 
+                n2.Tag = g;
 
                 n2.Nodes.Add(fillTreeView(g.Shaft));
                 n2.Nodes.Add(fillTreeView(g.Material));
@@ -39,7 +39,7 @@ namespace GearEditor
                 Shaft s = (Shaft)o;
                 n2.Name = "Shaft";
                 n2.Text = s.Name;
-                n2.Tag = s; 
+                n2.Tag = s;
 
                 n2.Nodes.Add(fillTreeView(s.Material));
             }
