@@ -32,7 +32,7 @@ namespace GearEditor
             //Creation d'un materiel
             Material material = new Material();
             material.Name = "Material1";
-            material.density = 2; 
+            material.Density = 2; 
             material.yieldStress = 0.1;
             material.youngsModulus = 1;
 

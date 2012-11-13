@@ -19,17 +19,15 @@ namespace GearEditor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-          /*  Shaft s = new Shaft();
-            s.Name = txtName.Text;
-            s.Diameter = Convert.ToDouble(numDiameter.Value);
-            s.KeyCutWidth = Convert.ToDouble(numKeyCutWidth.Value);
-            s.KeyCutHeigth = Convert.ToDouble(numKeyCutHeight.Value);
-            s.KeyCutLength = Convert.ToDouble(numKeyCutLength.Value);
-            s.Material = material;
-            */
-            if (s.Name != "")
+            Material m = new Material();
+            m.Name = txtName.Text;
+            m.Density = Convert.ToDouble(numDensity.Value);
+            m.yieldStress = Convert.ToDouble(numYieldStress.Value);
+            m.youngsModulus = Convert.ToDouble(numYoungModulus.Value); 
+
+            if (m.Name != "")
             {
-                Program.shaftList.Add(s);
+                Program.materialList.Add(m);
                 DialogResult = DialogResult.OK;
             }
             else
@@ -37,6 +35,11 @@ namespace GearEditor
                  MessageBox.Show("You have to add a Name to your Material", "Impossible to save the gear", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
             }
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
         }
     }
 }

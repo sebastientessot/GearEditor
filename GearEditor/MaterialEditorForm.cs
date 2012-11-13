@@ -47,17 +47,7 @@ namespace GearEditor
             }
         }
 
-       /*
-       * No Event Handler Methods
-       * 
-       */
-        private void refreshList()
-        {
-            foreach (Material gb in Program.materialList)
-            {
-                listMaterial.Items.Add(gb);
-            }
-        }
+
 
         private void listMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -66,8 +56,23 @@ namespace GearEditor
                 propertyGridMaterial.SelectedObject = listMaterial.SelectedItems[0];
                 btnEdit.Enabled = true;
                 btnRemove.Enabled = true;
+                btnSelect.Enabled = true; 
             }
         }
+
+       /*
+       * No Event Handler Methods
+       * 
+       */
+        private void refreshList()
+        {
+            listMaterial.Items.Clear(); 
+            foreach (Material gb in Program.materialList)
+            {
+                listMaterial.Items.Add(gb);
+            }
+        }
+
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
@@ -86,9 +91,9 @@ namespace GearEditor
             }
             refreshList();
             propertyGridMaterial.SelectedObject = null;
-            this.btnRemove.Enabled = false;
-            this.btnEdit.Enabled = false;
-        }
+            btnRemove.Enabled = false;
+            btnEdit.Enabled = false;
+            btnSelect.Enabled = false; 
         }
     }
 }

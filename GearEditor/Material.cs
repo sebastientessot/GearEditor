@@ -18,7 +18,7 @@ namespace GearEditor
             set { _name = value; }
         }
 
-        public Double density {
+        public Double Density {
             get { return _density; }
             set { _density = value; }
         }

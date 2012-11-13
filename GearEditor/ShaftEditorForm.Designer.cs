@@ -204,6 +204,7 @@
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            this.btnSelect.Enabled = false; 
             // 
             // ShaftEditorForm
             // 

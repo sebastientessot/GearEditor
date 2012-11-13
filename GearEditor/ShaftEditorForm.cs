@@ -45,7 +45,8 @@ namespace GearEditor
                 treeViewShaft.Nodes.Add(Util.fillTreeView(listShaft.SelectedItems[0]));
                 propertyGridShaft.SelectedObject = listShaft.SelectedItems[0];
                 btnEdit.Enabled = true;
-                btnRemove.Enabled = true; 
+                btnRemove.Enabled = true;
+                btnSelect.Enabled = true; 
             }
         }
 
@@ -94,8 +95,9 @@ namespace GearEditor
             refreshList();
             treeViewShaft.Nodes.Clear();
             propertyGridShaft.SelectedObject = null;
-            this.btnRemove.Enabled = false;
-            this.btnEdit.Enabled = false;
+            btnRemove.Enabled = false;
+            btnEdit.Enabled = false;
+            btnSelect.Enabled = false; 
         }
     }
 }

@@ -44,7 +44,8 @@ namespace GearEditor
                 treeViewGear.Nodes.Add(Util.fillTreeView(listGear.SelectedItems[0]));
                 propertyGridGear.SelectedObject = listGear.SelectedItems[0];
                 btnEdit.Enabled = true;
-                btnRemove.Enabled = true; 
+                btnRemove.Enabled = true;
+                btnSelect.Enabled = true; 
             }
         }
 
@@ -81,8 +82,9 @@ namespace GearEditor
             refreshList();
             treeViewGear.Nodes.Clear();
             propertyGridGear.SelectedObject = null;
-            this.btnRemove.Enabled = false;
-            this.btnEdit.Enabled = false;
+            btnRemove.Enabled = false;
+            btnEdit.Enabled = false; 
+            btnSelect.Enabled = false; 
         }
 
         /*
