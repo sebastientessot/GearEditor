@@ -31,18 +31,19 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblDensity = new System.Windows.Forms.Label();
+            this.lblDiameter = new System.Windows.Forms.Label();
             this.lblKeyCutWidth = new System.Windows.Forms.Label();
             this.lblKeycutHeight = new System.Windows.Forms.Label();
             this.lblKeyCutLength = new System.Windows.Forms.Label();
             this.lblMaterial = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.numDensity = new System.Windows.Forms.NumericUpDown();
+            this.numDiameter = new System.Windows.Forms.NumericUpDown();
             this.numKeyCutWidth = new System.Windows.Forms.NumericUpDown();
             this.numKeyCutHeight = new System.Windows.Forms.NumericUpDown();
             this.numKeyCutLength = new System.Windows.Forms.NumericUpDown();
             this.btnMaterial = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numDensity)).BeginInit();
+            this.txtMaterial = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiameter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKeyCutWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKeyCutHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKeyCutLength)).BeginInit();
@@ -67,6 +68,7 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblName
             // 
@@ -77,15 +79,15 @@
             this.lblName.TabIndex = 3;
             this.lblName.Text = "Name";
             // 
-            // lblDensity
+            // lblDiameter
             // 
-            this.lblDensity.AutoSize = true;
-            this.lblDensity.Location = new System.Drawing.Point(12, 32);
-            this.lblDensity.Name = "lblDensity";
-            this.lblDensity.Size = new System.Drawing.Size(42, 13);
-            this.lblDensity.TabIndex = 4;
-            this.lblDensity.Text = "Density";
-            this.lblDensity.Click += new System.EventHandler(this.label1_Click);
+            this.lblDiameter.AutoSize = true;
+            this.lblDiameter.Location = new System.Drawing.Point(12, 32);
+            this.lblDiameter.Name = "lblDiameter";
+            this.lblDiameter.Size = new System.Drawing.Size(42, 13);
+            this.lblDiameter.TabIndex = 4;
+            this.lblDiameter.Text = "Density";
+            this.lblDiameter.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblKeyCutWidth
             // 
@@ -130,12 +132,12 @@
             this.txtName.Size = new System.Drawing.Size(83, 20);
             this.txtName.TabIndex = 9;
             // 
-            // numDensity
+            // numDiameter
             // 
-            this.numDensity.Location = new System.Drawing.Point(122, 30);
-            this.numDensity.Name = "numDensity";
-            this.numDensity.Size = new System.Drawing.Size(82, 20);
-            this.numDensity.TabIndex = 10;
+            this.numDiameter.Location = new System.Drawing.Point(122, 30);
+            this.numDiameter.Name = "numDiameter";
+            this.numDiameter.Size = new System.Drawing.Size(82, 20);
+            this.numDiameter.TabIndex = 10;
             // 
             // numKeyCutWidth
             // 
@@ -168,22 +170,32 @@
             this.btnMaterial.UseVisualStyleBackColor = true;
             this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
+            // txtMaterial
+            // 
+            this.txtMaterial.Location = new System.Drawing.Point(122, 135);
+            this.txtMaterial.Name = "txtMaterial";
+            this.txtMaterial.ReadOnly = true;
+            this.txtMaterial.Size = new System.Drawing.Size(67, 20);
+            this.txtMaterial.TabIndex = 29;
+            this.txtMaterial.Visible = false;
+            // 
             // ShaftCreationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(216, 311);
+            this.Controls.Add(this.txtMaterial);
             this.Controls.Add(this.btnMaterial);
             this.Controls.Add(this.numKeyCutLength);
             this.Controls.Add(this.numKeyCutHeight);
             this.Controls.Add(this.numKeyCutWidth);
-            this.Controls.Add(this.numDensity);
+            this.Controls.Add(this.numDiameter);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblMaterial);
             this.Controls.Add(this.lblKeyCutLength);
             this.Controls.Add(this.lblKeycutHeight);
             this.Controls.Add(this.lblKeyCutWidth);
-            this.Controls.Add(this.lblDensity);
+            this.Controls.Add(this.lblDiameter);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -191,7 +203,7 @@
             this.Name = "ShaftCreationForm";
             this.Text = "Shaft Creation";
             this.Load += new System.EventHandler(this.ShaftCreationForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numDensity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiameter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKeyCutWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKeyCutHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKeyCutLength)).EndInit();
@@ -205,16 +217,17 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblDensity;
+        private System.Windows.Forms.Label lblDiameter;
         private System.Windows.Forms.Label lblKeyCutWidth;
         private System.Windows.Forms.Label lblKeycutHeight;
         private System.Windows.Forms.Label lblKeyCutLength;
         private System.Windows.Forms.Label lblMaterial;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.NumericUpDown numDensity;
+        private System.Windows.Forms.NumericUpDown numDiameter;
         private System.Windows.Forms.NumericUpDown numKeyCutWidth;
         private System.Windows.Forms.NumericUpDown numKeyCutHeight;
         private System.Windows.Forms.NumericUpDown numKeyCutLength;
         private System.Windows.Forms.Button btnMaterial;
+        private System.Windows.Forms.TextBox txtMaterial;
     }
 }

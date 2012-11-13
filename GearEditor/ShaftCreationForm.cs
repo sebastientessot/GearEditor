@@ -12,9 +12,16 @@ namespace GearEditor
 {
     public partial class ShaftCreationForm : Form
     {
+        Material material;
+        public static Material mTemp;
+        Size btnSize; 
+
         public ShaftCreationForm()
         {
             InitializeComponent();
+            btnSize = new Size();
+            btnSize.Width = 26;
+            btnSize.Height = 22; 
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,14 +39,48 @@ namespace GearEditor
             MaterialEditorForm materialEditor = new MaterialEditorForm();
             if (materialEditor.ShowDialog() == DialogResult.OK)
             {
-                //Changer le bouton Choose correspondant 
+             
                 // Ajouter le nom du Material
+                material = mTemp;
+
+                //Changer le bouton Choose correspondant 
+                txtMaterial.Text = material.Name;
+                txtMaterial.Visible = true;
+                btnMaterial.Text = "...";
+                btnMaterial.Size = btnSize;
+                btnMaterial.Location = new Point(186, 134);
+        
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Shaft s = new Shaft();
+            s.Name = txtName.Text;
+            s.Diameter = Convert.ToDouble(numDiameter.Value);
+            s.KeyCutWidth = Convert.ToDouble(numKeyCutWidth.Value);
+            s.KeyCutHeigth = Convert.ToDouble(numKeyCutHeight.Value);
+            s.KeyCutLength = Convert.ToDouble(numKeyCutLength.Value);
+            s.Material = material;
 
+            if (s.Name != "" && s.Material != null)
+            {
+                Program.shaftList.Add(s);
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                if (s.Name == "")
+                    MessageBox.Show("You have to add a Name to your shaft", "Impossible to save the gear", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                    MessageBox.Show("You have to add a Material to your shaft", "Impossible to save the gear", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
         }
     }
 }

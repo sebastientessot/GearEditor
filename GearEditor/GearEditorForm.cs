@@ -62,6 +62,29 @@ namespace GearEditor
             }    
         }
 
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+            if (listGear.SelectedItems.Count > 0)
+            {
+                Gear gearToDelete = new Gear();
+                gearToDelete = (Gear)listGear.SelectedItems[0];
+                foreach (Gear g in Program.gearList)
+                {
+                    if (g.Equals(gearToDelete))
+                    {
+                        gearToDelete = g;
+                    }
+                }
+                Program.gearList.Remove(gearToDelete);
+            }
+            refreshList();
+            treeViewGear.Nodes.Clear();
+            propertyGridGear.SelectedObject = null;
+            this.btnRemove.Enabled = false;
+            this.btnEdit.Enabled = false;
+        }
+
         /*
         * No Event Handler Methods
         * 
@@ -74,29 +97,6 @@ namespace GearEditor
             {
                 listGear.Items.Add(gb);
             }
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-
-            if (listGear.SelectedItems.Count > 0)
-            {
-                GearBox gearBoxToDelete = new GearBox();
-                gearBoxToDelete = (GearBox)listGear.SelectedItems[0];
-                foreach (GearBox gb in Program.gearBoxList)
-                {
-                    if (gb.Equals(gearBoxToDelete))
-                    {
-                        gearBoxToDelete = gb;
-                    }
-                }
-                Program.gearBoxList.Remove(gearBoxToDelete);
-            }
-            refreshList();
-            treeViewGear.Nodes.Clear();
-            propertyGridGear.SelectedObject = null;
-            this.btnRemove.Enabled = false;
-            this.btnEdit.Enabled = false;
         }
     }
 }

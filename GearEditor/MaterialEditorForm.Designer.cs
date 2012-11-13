@@ -93,6 +93,7 @@
             this.btnRemove.Text = "-";
             this.btnRemove.UseCompatibleTextRendering = true;
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
             // 
@@ -130,6 +131,7 @@
             this.listMaterial.Size = new System.Drawing.Size(157, 277);
             this.listMaterial.TabIndex = 0;
             this.listMaterial.ValueMember = "Material";
+            this.listMaterial.SelectedIndexChanged += new System.EventHandler(this.listMaterial_SelectedIndexChanged);
             // 
             // propertyGridMaterial
             // 
