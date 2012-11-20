@@ -44,6 +44,8 @@ namespace GearEditor
             {
                 GearCreationForm.mTemp = (Material)listMaterial.SelectedItems[0];
                 ShaftCreationForm.mTemp = (Material)listMaterial.SelectedItems[0];
+                GearBoxGenerator.mInputTemp = (Material)listMaterial.SelectedItems[0];
+                GearBoxGenerator.mOutputTemp = (Material)listMaterial.SelectedItems[0];
             }
         }
 

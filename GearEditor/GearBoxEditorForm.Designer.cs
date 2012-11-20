@@ -68,16 +68,17 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel2.Controls.Add(this.btnSelect);
-            this.splitContainer1.Size = new System.Drawing.Size(423, 436);
+            this.splitContainer1.Size = new System.Drawing.Size(423, 437);
             this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 2;
             // 
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.Enabled = false;
             this.btnEdit.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.DimGray;
-            this.btnEdit.Location = new System.Drawing.Point(136, 394);
+            this.btnEdit.Location = new System.Drawing.Point(136, 395);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.btnEdit.Size = new System.Drawing.Size(29, 29);
@@ -85,14 +86,14 @@
             this.btnEdit.Text = "✎";
             this.btnEdit.UseCompatibleTextRendering = true;
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Enabled = false;
             // 
             // btnRemove
             // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.Enabled = false;
             this.btnRemove.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRemove.Location = new System.Drawing.Point(101, 394);
+            this.btnRemove.Location = new System.Drawing.Point(101, 395);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.btnRemove.Size = new System.Drawing.Size(29, 29);
@@ -101,14 +102,13 @@
             this.btnRemove.UseCompatibleTextRendering = true;
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            this.btnRemove.Enabled = false;
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAdd.Location = new System.Drawing.Point(66, 394);
+            this.btnAdd.Location = new System.Drawing.Point(66, 395);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(29, 29);
@@ -129,8 +129,8 @@
             // 
             // listGearBox
             // 
-            this.listGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.listGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listGearBox.DisplayMember = "Name";
             this.listGearBox.FormattingEnabled = true;
@@ -143,8 +143,8 @@
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer2.Location = new System.Drawing.Point(-1, 0);
             this.splitContainer2.Name = "splitContainer2";
@@ -157,14 +157,14 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.propertyGridGearBox);
-            this.splitContainer2.Size = new System.Drawing.Size(252, 395);
+            this.splitContainer2.Size = new System.Drawing.Size(252, 396);
             this.splitContainer2.SplitterDistance = 126;
             this.splitContainer2.TabIndex = 5;
             // 
             // treeViewGearBox
             // 
-            this.treeViewGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.treeViewGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewGearBox.Location = new System.Drawing.Point(3, 3);
             this.treeViewGearBox.Name = "treeViewGearBox";
@@ -174,19 +174,19 @@
             // 
             // propertyGridGearBox
             // 
-            this.propertyGridGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.propertyGridGearBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.propertyGridGearBox.Enabled = false;
             this.propertyGridGearBox.Location = new System.Drawing.Point(4, 3);
             this.propertyGridGearBox.Name = "propertyGridGearBox";
-            this.propertyGridGearBox.Size = new System.Drawing.Size(245, 259);
+            this.propertyGridGearBox.Size = new System.Drawing.Size(245, 260);
             this.propertyGridGearBox.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(164, 401);
+            this.btnCancel.Location = new System.Drawing.Point(164, 402);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -197,7 +197,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(77, 401);
+            this.btnSelect.Location = new System.Drawing.Point(77, 402);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 2;
@@ -208,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 436);
+            this.ClientSize = new System.Drawing.Size(423, 437);
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(430, 475);
             this.Name = "GearBoxEditorForm";

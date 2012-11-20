@@ -178,6 +178,7 @@
             this.txtMaterial.Size = new System.Drawing.Size(67, 20);
             this.txtMaterial.TabIndex = 29;
             this.txtMaterial.Visible = false;
+            this.txtMaterial.TextChanged += new System.EventHandler(this.txtMaterial_TextChanged);
             // 
             // ShaftCreationForm
             // 

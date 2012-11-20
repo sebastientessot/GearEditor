@@ -81,8 +81,8 @@ namespace GearEditor
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GearBoxEditorForm(/*gearBoxList,gearList,shaftList, materialList*/));
-
+            //Application.Run(new GearBoxEditorForm());
+            Application.Run(new GearBoxGenerator());
         }
     }
 }

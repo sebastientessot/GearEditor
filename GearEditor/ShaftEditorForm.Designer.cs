@@ -68,7 +68,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel2.Controls.Add(this.btnSelect);
-            this.splitContainer1.Size = new System.Drawing.Size(423, 355);
+            this.splitContainer1.Size = new System.Drawing.Size(423, 411);
             this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -78,7 +78,7 @@
             this.btnEdit.Enabled = false;
             this.btnEdit.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.DimGray;
-            this.btnEdit.Location = new System.Drawing.Point(136, 313);
+            this.btnEdit.Location = new System.Drawing.Point(136, 369);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.btnEdit.Size = new System.Drawing.Size(29, 29);
@@ -93,7 +93,7 @@
             this.btnRemove.Enabled = false;
             this.btnRemove.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRemove.Location = new System.Drawing.Point(101, 313);
+            this.btnRemove.Location = new System.Drawing.Point(101, 369);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.btnRemove.Size = new System.Drawing.Size(29, 29);
@@ -108,7 +108,7 @@
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAdd.Location = new System.Drawing.Point(66, 313);
+            this.btnAdd.Location = new System.Drawing.Point(66, 369);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(29, 29);
@@ -129,22 +129,22 @@
             // 
             // listShaft
             // 
-            this.listShaft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.listShaft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listShaft.DisplayMember = "Name";
             this.listShaft.FormattingEnabled = true;
             this.listShaft.Location = new System.Drawing.Point(8, 24);
             this.listShaft.Name = "listShaft";
-            this.listShaft.Size = new System.Drawing.Size(157, 277);
+            this.listShaft.Size = new System.Drawing.Size(157, 329);
             this.listShaft.TabIndex = 0;
             this.listShaft.ValueMember = "Shaft";
             this.listShaft.SelectedIndexChanged += new System.EventHandler(this.listShaft_SelectedIndexChanged);
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer2.Location = new System.Drawing.Point(-1, 0);
             this.splitContainer2.Name = "splitContainer2";
@@ -157,36 +157,37 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.propertyGridShaft);
-            this.splitContainer2.Size = new System.Drawing.Size(252, 314);
-            this.splitContainer2.SplitterDistance = 107;
+            this.splitContainer2.Size = new System.Drawing.Size(252, 370);
+            this.splitContainer2.SplitterDistance = 126;
             this.splitContainer2.TabIndex = 5;
             // 
             // treeViewShaft
             // 
-            this.treeViewShaft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.treeViewShaft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewShaft.Location = new System.Drawing.Point(4, 3);
             this.treeViewShaft.Name = "treeViewShaft";
-            this.treeViewShaft.Size = new System.Drawing.Size(245, 101);
+            this.treeViewShaft.Size = new System.Drawing.Size(245, 120);
             this.treeViewShaft.TabIndex = 0;
             this.treeViewShaft.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewShaft_AfterSelect);
             // 
             // propertyGridShaft
             // 
-            this.propertyGridShaft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.propertyGridShaft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.propertyGridShaft.Enabled = false;
             this.propertyGridShaft.Location = new System.Drawing.Point(4, 3);
             this.propertyGridShaft.Name = "propertyGridShaft";
-            this.propertyGridShaft.Size = new System.Drawing.Size(245, 197);
+            this.propertyGridShaft.Size = new System.Drawing.Size(245, 234);
             this.propertyGridShaft.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(164, 320);
+            this.btnCancel.Location = new System.Drawing.Point(164, 376);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -197,24 +198,25 @@
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSelect.Location = new System.Drawing.Point(77, 320);
+            this.btnSelect.Enabled = false;
+            this.btnSelect.Location = new System.Drawing.Point(77, 376);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 2;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            this.btnSelect.Enabled = false;
             // 
             // ShaftEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 355);
+            this.ClientSize = new System.Drawing.Size(423, 411);
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(439, 349);
             this.Name = "ShaftEditorForm";
             this.Text = "Shaft Editor Form";
+            this.Load += new System.EventHandler(this.ShaftEditorForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

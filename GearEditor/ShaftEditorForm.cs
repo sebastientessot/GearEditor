@@ -99,5 +99,10 @@ namespace GearEditor
             btnEdit.Enabled = false;
             btnSelect.Enabled = false;
         }
+
+        private void ShaftEditorForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

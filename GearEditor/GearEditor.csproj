@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +62,12 @@
     </Compile>
     <Compile Include="GearBoxEditorForm.Designer.cs">
       <DependentUpon>GearBoxEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GearBoxGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GearBoxGenerator.Designer.cs">
+      <DependentUpon>GearBoxGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="GearCreationForm.cs">
       <SubType>Form</SubType>
@@ -101,6 +110,18 @@
       <DependentUpon>ShaftEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="GearBoxEditorForm.resx">
+      <DependentUpon>GearBoxEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GearBoxGenerator.resx">
+      <DependentUpon>GearBoxGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GearEditorForm.resx">
+      <DependentUpon>GearEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialEditorForm.resx">
+      <DependentUpon>MaterialEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -110,6 +131,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ShaftCreationForm.resx">
+      <DependentUpon>ShaftCreationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShaftEditorForm.resx">
+      <DependentUpon>ShaftEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -119,6 +146,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Mathcad">
+      <Guid>{A86F3A06-7127-4E0F-BCAF-56D15FA57AC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -67,6 +67,42 @@ namespace GearEditor
             set { _name = value; }
         }
 
+        public Double Z
+        {
+            get { return _z; }
+            set { _z = value; }
+        }
+
+        public Double Phi
+        {
+            get { return _phi; }
+            set { _phi = value; }
+        }
+
+        public Double R_base
+        {
+            get { return _r_base; }
+            set { _r_base = value; }
+        }
+
+        public Double R_foot
+        {
+            get { return _r_foot; }
+            set { _r_foot = value; }
+        }
+
+        public Double R_pitch
+        {
+            get { return _r_pitch; }
+            set { _r_pitch = value; }
+        }
+
+        public Double R_top
+        {
+            get { return _r_top; }
+            set { _r_top = value; }
+        }
+
         public override string ToString()
         {
             return Name;

@@ -45,6 +45,7 @@ namespace GearEditor
 
                 //Changer le bouton Choose correspondant 
                 txtMaterial.Text = material.Name;
+                txtMaterial.Tag = material;
                 txtMaterial.Visible = true;
                 btnMaterial.Text = "...";
                 btnMaterial.Size = btnSize;
@@ -81,6 +82,11 @@ namespace GearEditor
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtMaterial_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
