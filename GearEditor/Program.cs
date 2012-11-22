@@ -33,7 +33,7 @@ namespace GearEditor
             Material material = new Material();
             material.Name = "Material1";
             material.Density = 2;
-            material.yieldStress = 0.1;
+            material.yieldStress = 210;
             material.youngsModulus = 1;
 
             materialList.Add(material);

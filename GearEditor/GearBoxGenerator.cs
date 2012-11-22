@@ -87,11 +87,14 @@ namespace GearEditor
 
                 //Input Gear Calculation
                 gearCalculation(inputGear, true);
-
                 updateGearOnCatia(inputGear, true);
+              
+                       
+                gearCalculation(outputGear, false);       
                 updateGearOnCatia(outputGear, false);
-          //      showGearboxOnCatia();
+                showGearboxOnCatia(gearBox);
 
+                updateTreeView(gearBox);
                 this.btnValidate.Visible = true;
             }
         }
@@ -137,6 +140,10 @@ namespace GearEditor
 
         private Shaft createShaft(Material material, Double torque, bool isInput) {
             Shaft shaft = new Shaft();
+            if (isInput)
+                shaft.Name = txtName.Text + " Input Shaft";
+            else
+                shaft.Name = txtName.Text + " Output Shaft"; 
             shaft.Material = material;
            
             // MathCAD 
@@ -156,7 +163,7 @@ namespace GearEditor
 
             Mathcad.Worksheet ws = mathCadApp.ActiveWorksheet;
             ws.SetValue("yield_stress", material.yieldStress);
-            ws.SetValue("M", torque);
+            ws.SetValue("M", torque*1000);
 
             String value;
             value = ws.GetValue("diameter").asString;
@@ -253,10 +260,10 @@ namespace GearEditor
                 catiaApp.Visible = true;
                 if (isInput == true)
                 {
-                    catiaApp.Documents.Open(path + "\\input_gear.CATPart");
+                    catiaApp.Documents.Open(path + "\\inputGear.CATPart");
                 }
                 else
-                    catiaApp.Documents.Open(path + "\\output_gear.CATPart");
+                    catiaApp.Documents.Open(path + "\\outputGear.CATPart");
             }
             MECMOD.PartDocument partDocument = (MECMOD.PartDocument) catiaApp.ActiveDocument;  
             ProductStructureTypeLib.Product product = partDocument.Product;
@@ -283,7 +290,7 @@ namespace GearEditor
             type.ValuateFromString(g.R_foot + "mm");
 
             type = (KnowledgewareTypeLib.Parameter)product.Parameters.GetItem("phi");
-            type.ValuateFromString((g.Phi*Math.PI/180) + "rad");
+            type.ValuateFromString(g.Phi + "rad");
 
             type = (KnowledgewareTypeLib.Parameter)product.Parameters.GetItem("D_Shaft");
             type.ValuateFromString(g.Shaft.Diameter + "mm");
@@ -314,7 +321,7 @@ namespace GearEditor
 
         }
 
-        public void showGearboxOnCatia() {
+        private void showGearboxOnCatia(GearBox gb) {
             INFITF.Application catiaApp = null;
             try
             {
@@ -327,11 +334,29 @@ namespace GearEditor
             finally
             {
                 catiaApp.Visible = true;
-                catiaApp.Documents.Open(path + "\\input_gear.CATPart");
+                catiaApp.Documents.Open(path + "\\GearBox.CATProduct");
             }
-            MECMOD.PartDocument partDocument = (MECMOD.PartDocument)catiaApp.ActiveDocument;
-            ProductStructureTypeLib.Product product = partDocument.Product;
+            ProductStructureTypeLib.ProductDocument productDoc = (ProductStructureTypeLib.ProductDocument)catiaApp.ActiveDocument;
+            ProductStructureTypeLib.Product product = productDoc.Product;
 
+            KnowledgewareTypeLib.Parameter type = (KnowledgewareTypeLib.Parameter)product.Parameters.GetItem("AxesDistance");
+            type.ValuateFromString(gb.AxesDistance + "mm");
+
+         //   product.Update();
+         //   productDoc.Save();
         }
+
+        private void updateTreeView(GearBox gb)
+        {
+            treeView1.Nodes.Clear();
+            treeView1.Nodes.Add(Util.fillTreeView(gb));
+            propertyGrid1.SelectedObject = gb;
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            propertyGrid1.SelectedObject = treeView1.SelectedNode.Tag;
+        }
+
     }
 }

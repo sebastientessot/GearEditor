@@ -173,6 +173,11 @@
             this.numTorqueRatio.Name = "numTorqueRatio";
             this.numTorqueRatio.Size = new System.Drawing.Size(119, 20);
             this.numTorqueRatio.TabIndex = 15;
+            this.numTorqueRatio.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
             // 
             // numGearModule
             // 
@@ -187,26 +192,46 @@
             this.numGearModule.Size = new System.Drawing.Size(119, 20);
             this.numGearModule.TabIndex = 12;
             this.numGearModule.Value = new decimal(new int[] {
-            1,
+            4,
             0,
             0,
-            65536});
+            0});
             // 
             // numInputTorque
             // 
             this.numInputTorque.DecimalPlaces = 2;
             this.numInputTorque.Location = new System.Drawing.Point(119, 119);
+            this.numInputTorque.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numInputTorque.Name = "numInputTorque";
             this.numInputTorque.Size = new System.Drawing.Size(119, 20);
             this.numInputTorque.TabIndex = 13;
+            this.numInputTorque.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             // 
             // numOutputTorque
             // 
             this.numOutputTorque.DecimalPlaces = 2;
             this.numOutputTorque.Location = new System.Drawing.Point(119, 172);
+            this.numOutputTorque.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.numOutputTorque.Name = "numOutputTorque";
             this.numOutputTorque.Size = new System.Drawing.Size(120, 20);
             this.numOutputTorque.TabIndex = 14;
+            this.numOutputTorque.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // numAxesDistance
             // 
@@ -215,6 +240,11 @@
             this.numAxesDistance.Name = "numAxesDistance";
             this.numAxesDistance.Size = new System.Drawing.Size(119, 20);
             this.numAxesDistance.TabIndex = 11;
+            this.numAxesDistance.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // numAlpha
             // 
@@ -223,6 +253,11 @@
             this.numAlpha.Name = "numAlpha";
             this.numAlpha.Size = new System.Drawing.Size(119, 20);
             this.numAlpha.TabIndex = 10;
+            this.numAlpha.Value = new decimal(new int[] {
+            17,
+            0,
+            0,
+            0});
             // 
             // txtName
             // 
@@ -261,48 +296,48 @@
             // lblOutputTorque
             // 
             this.lblOutputTorque.AutoSize = true;
-            this.lblOutputTorque.Location = new System.Drawing.Point(37, 174);
+            this.lblOutputTorque.Location = new System.Drawing.Point(11, 174);
             this.lblOutputTorque.Name = "lblOutputTorque";
-            this.lblOutputTorque.Size = new System.Drawing.Size(76, 13);
+            this.lblOutputTorque.Size = new System.Drawing.Size(101, 13);
             this.lblOutputTorque.TabIndex = 5;
-            this.lblOutputTorque.Text = "Output Torque";
+            this.lblOutputTorque.Text = "Output Torque (mm)";
             // 
             // lblInputTorque
             // 
             this.lblInputTorque.AutoSize = true;
-            this.lblInputTorque.Location = new System.Drawing.Point(45, 121);
+            this.lblInputTorque.Location = new System.Drawing.Point(20, 121);
             this.lblInputTorque.Name = "lblInputTorque";
-            this.lblInputTorque.Size = new System.Drawing.Size(68, 13);
+            this.lblInputTorque.Size = new System.Drawing.Size(93, 13);
             this.lblInputTorque.TabIndex = 4;
-            this.lblInputTorque.Text = "Input Torque";
+            this.lblInputTorque.Text = "Input Torque (mm)";
             // 
             // lblGearModule
             // 
             this.lblGearModule.AutoSize = true;
-            this.lblGearModule.Location = new System.Drawing.Point(45, 95);
+            this.lblGearModule.Location = new System.Drawing.Point(20, 95);
             this.lblGearModule.Name = "lblGearModule";
-            this.lblGearModule.Size = new System.Drawing.Size(68, 13);
+            this.lblGearModule.Size = new System.Drawing.Size(93, 13);
             this.lblGearModule.TabIndex = 3;
-            this.lblGearModule.Text = "Gear Module";
+            this.lblGearModule.Text = "Gear Module (mm)";
             this.lblGearModule.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblAxesDistance
             // 
             this.lblAxesDistance.AutoSize = true;
-            this.lblAxesDistance.Location = new System.Drawing.Point(38, 69);
+            this.lblAxesDistance.Location = new System.Drawing.Point(13, 69);
             this.lblAxesDistance.Name = "lblAxesDistance";
-            this.lblAxesDistance.Size = new System.Drawing.Size(75, 13);
+            this.lblAxesDistance.Size = new System.Drawing.Size(100, 13);
             this.lblAxesDistance.TabIndex = 2;
-            this.lblAxesDistance.Text = "Axes Distance";
+            this.lblAxesDistance.Text = "Axes Distance (mm)";
             // 
             // lblAlpha
             // 
             this.lblAlpha.AutoSize = true;
-            this.lblAlpha.Location = new System.Drawing.Point(79, 43);
+            this.lblAlpha.Location = new System.Drawing.Point(52, 43);
             this.lblAlpha.Name = "lblAlpha";
-            this.lblAlpha.Size = new System.Drawing.Size(34, 13);
+            this.lblAlpha.Size = new System.Drawing.Size(61, 13);
             this.lblAlpha.TabIndex = 1;
-            this.lblAlpha.Text = "Alpha";
+            this.lblAlpha.Text = "Alpha (deg)";
             // 
             // lblName
             // 
@@ -338,8 +373,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(342, 282);
+            this.treeView1.Size = new System.Drawing.Size(330, 282);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // propertyGrid1
             // 
@@ -348,7 +384,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.propertyGrid1.Location = new System.Drawing.Point(3, 3);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(342, 300);
+            this.propertyGrid1.Size = new System.Drawing.Size(330, 300);
             this.propertyGrid1.TabIndex = 0;
             // 
             // GearBoxGenerator
