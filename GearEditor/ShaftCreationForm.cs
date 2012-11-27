@@ -37,6 +37,7 @@ namespace GearEditor
         private void btnMaterial_Click(object sender, EventArgs e)
         {
             MaterialEditorForm materialEditor = new MaterialEditorForm();
+            materialEditor.menuStripVisible(false);
             if (materialEditor.ShowDialog() == DialogResult.OK)
             {
 
@@ -66,6 +67,8 @@ namespace GearEditor
 
             if (s.Name != "" && s.Material != null)
             {
+                Database1DataSet1TableAdapters.Shaft1TableAdapter sta = new Database1DataSet1TableAdapters.Shaft1TableAdapter();
+                sta.Insert(s.Name, s.Diameter, s.Material.ID, s.KeyCutWidth, s.KeyCutHeigth, s.KeyCutLength);
                 Program.shaftList.Add(s);
                 DialogResult = DialogResult.OK;
             }

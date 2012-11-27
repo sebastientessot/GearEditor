@@ -8,6 +8,7 @@ namespace GearEditor
     public class Shaft
     {
         String _name;
+        int _id;
         Double _diameter;
         Double _keyCutWidth;
         Double _keyCutHeigth;
@@ -18,6 +19,12 @@ namespace GearEditor
         {
             get { return _name; }
             set { _name = value; }
+        }
+
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
         public Double Diameter

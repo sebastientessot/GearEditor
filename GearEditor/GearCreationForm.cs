@@ -28,6 +28,7 @@ namespace GearEditor
         private void btnShaft_Click(object sender, EventArgs e)
         {
             ShaftEditorForm shaftEditor = new ShaftEditorForm();
+            shaftEditor.menuStripVisible(false);
             if (shaftEditor.ShowDialog() == DialogResult.OK)
             {
                 // Ajouter le nom du Shaft
@@ -46,6 +47,7 @@ namespace GearEditor
         private void btnMaterial_Click(object sender, EventArgs e)
         {
             MaterialEditorForm materialEditor = new MaterialEditorForm();
+            materialEditor.menuStripVisible(false);
             if (materialEditor.ShowDialog() == DialogResult.OK)
             {
                 // Ajouter le nom du Material
@@ -75,6 +77,8 @@ namespace GearEditor
 
             if (g.Name != "" && g.Material != null && g.Shaft != null)
             {
+                Database1DataSet1TableAdapters.GearsTableAdapter gta = new Database1DataSet1TableAdapters.GearsTableAdapter();
+                gta.Insert(g.Name, g.Alpha, g.GearModule, g.Material.ID, g.Torque, g.Shaft.ID,g.WantedRadius, 0,0,0,0,0,0);
                 Program.gearList.Add(g);
                 DialogResult = DialogResult.OK;
             }

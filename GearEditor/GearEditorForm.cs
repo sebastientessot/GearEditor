@@ -100,5 +100,31 @@ namespace GearEditor
                 listGear.Items.Add(gb);
             }
         }
+
+        private void gearBoxEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GearBoxEditorForm gForm = new GearBoxEditorForm();
+            gForm.Show();
+            this.Close();
+        }
+
+        private void shaftEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShaftEditorForm sForm = new ShaftEditorForm();
+            sForm.Show();
+            this.Close();
+        }
+
+        private void materialEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaterialEditorForm mForm = new MaterialEditorForm();
+            mForm.Show();
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

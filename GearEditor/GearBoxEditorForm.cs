@@ -20,7 +20,6 @@ namespace GearEditor
         {
             InitializeComponent();
             btnSelect.Hide();
-            btnCancel.Hide();
             refreshList();
         }
 
@@ -98,6 +97,27 @@ namespace GearEditor
             propertyGridGearBox.SelectedObject = null;
             this.btnRemove.Enabled = false;
             this.btnEdit.Enabled = false;
+        }
+
+        private void gearEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GearEditorForm gForm = new GearEditorForm();
+            gForm.Show(); 
+            this.Close();
+        }
+
+        private void shaftEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShaftEditorForm sForm = new ShaftEditorForm();
+            sForm.Show(); 
+            this.Close();
+        }
+
+        private void materialEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaterialEditorForm mForm = new MaterialEditorForm();
+            mForm.Show(); 
+            this.Close();
         }
     }
 }

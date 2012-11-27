@@ -53,5 +53,34 @@ namespace GearEditor
 
             return n2;
         }
+
+        public static Material getMaterialById(int id){
+            foreach (Material item in Program.materialList)
+            {
+                if (item.ID == id)
+                    return item; 
+            }
+            return null;
+        }
+
+        public static Shaft getShaftById(int id)
+        {
+            foreach (Shaft item in Program.shaftList)
+            {
+                if (item.ID == id)
+                    return item;
+            }
+            return null;
+        }
+
+        public static Gear getGearById(int id)
+        {
+            foreach (Gear item in Program.gearList)
+            {
+                if (item.ID == id)
+                    return item;
+            }
+            return null;
+        }
     }
 }

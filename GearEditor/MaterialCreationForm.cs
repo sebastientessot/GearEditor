@@ -27,6 +27,8 @@ namespace GearEditor
 
             if (m.Name != "")
             {
+                Database1DataSet1TableAdapters.MaterialsTableAdapter mta = new Database1DataSet1TableAdapters.MaterialsTableAdapter();
+                mta.Insert(m.Name, m.youngsModulus, m.Density, m.yieldStress);
                 Program.materialList.Add(m);
                 DialogResult = DialogResult.OK;
             }

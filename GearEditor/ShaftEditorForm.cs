@@ -104,5 +104,31 @@ namespace GearEditor
         {
 
         }
+
+        private void gearBoxEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GearBoxEditorForm gbForm = new GearBoxEditorForm();
+            gbForm.Show();
+            this.Close();
+        }
+
+        private void gearEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GearEditorForm gForm = new GearEditorForm();
+            gForm.Show();
+            this.Close();
+        }
+
+        private void materialEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaterialEditorForm mForm = new MaterialEditorForm();
+            mForm.Show();
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

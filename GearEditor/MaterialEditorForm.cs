@@ -97,5 +97,31 @@ namespace GearEditor
             btnEdit.Enabled = false;
             btnSelect.Enabled = false;
         }
+
+        private void gearBoxEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GearBoxEditorForm gbForm = new GearBoxEditorForm();
+            gbForm.Show();
+            this.Close();
+        }
+
+        private void gearEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GearEditorForm gForm = new GearEditorForm();
+            gForm.Show();
+            this.Close();
+        }
+
+        private void shaftEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShaftEditorForm sForm = new ShaftEditorForm();
+            sForm.Show();
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

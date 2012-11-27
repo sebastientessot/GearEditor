@@ -24,7 +24,10 @@ namespace GearEditor
         double inputC2;
         double outputC1; 
         double outputC2; 
-        String path; 
+        String path;
+        GearBox gearBox;
+        Gear inputGear;
+        Gear outputGear;
 
 
         public GearBoxGenerator()
@@ -38,17 +41,24 @@ namespace GearEditor
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-         /*   if (txtName == null)
+            btnValidate.Visible = false;
+            
+            if (txtName.Text == "")
                MessageBox.Show("You have to add a Name to your InputGear", "Impossible to generate a GearBox ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else*/ if (mInputTemp == null)
+            else if (txtInputMaterial.Tag == null)
                 MessageBox.Show("You have to add a Material to your InputGear", "Impossible to generate a GearBox", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtOutputMaterial.Tag == null)
+                MessageBox.Show("You have to add a Material to your OutputGear", "Impossible to generate a GearBox", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
+                tsStatusLabel.Text = "Starting the generation...";
+
+                numTorqueRatio.Value = numOutputTorque.Value / numInputTorque.Value;
                 double axesDistance = Convert.ToDouble(numAxesDistance.Value);
                 double torqueRatio = Convert.ToDouble(numTorqueRatio.Value);
-                GearBox gearBox = new GearBox();
-                Gear inputGear = new Gear();
-                Gear outputGear = new Gear();
+                gearBox = new GearBox();
+                inputGear = new Gear();
+                outputGear = new Gear();
                 double alpha = Convert.ToDouble(numAlpha.Value)*Math.PI/180;
 
                 /*
@@ -61,6 +71,8 @@ namespace GearEditor
                 gearBox.GearModule = Convert.ToDouble(numGearModule.Value);
                 gearBox.AxesDistance = axesDistance;
                 gearBox.TorqueRatio = torqueRatio;
+                gearBox.InputTorque = Convert.ToDouble(numInputTorque.Value);
+                gearBox.OutputTorque = Convert.ToDouble(numOutputTorque.Value);
                 gearBox.InputGear = inputGear;
                 gearBox.OutputGear = outputGear;
 
@@ -100,6 +112,10 @@ namespace GearEditor
         }
 
         private void gearCalculation(Gear gear, bool isInput) {
+            if (isInput)
+                tsStatusLabel.Text = "Calculation of the input Gear...";
+            else
+                tsStatusLabel.Text = "Calculation of the output Gear...";
             Mathcad.Application mathCadApp=null;
             try
             {
@@ -139,6 +155,10 @@ namespace GearEditor
         }
 
         private Shaft createShaft(Material material, Double torque, bool isInput) {
+            if (isInput)
+                tsStatusLabel.Text = "Calculation of the input Shaft...";
+            else
+                tsStatusLabel.Text = "Calculation of the output Shaft...";
             Shaft shaft = new Shaft();
             if (isInput)
                 shaft.Name = txtName.Text + " Input Shaft";
@@ -167,7 +187,7 @@ namespace GearEditor
 
             String value;
             value = ws.GetValue("diameter").asString;
-            shaft.Diameter = Convert.ToDouble(value);
+            shaft.Diameter = Convert.ToInt32(value);
 
             // Microsoft Excel 
             Microsoft.Office.Interop.Excel.Application excelApp = null;
@@ -182,7 +202,7 @@ namespace GearEditor
                 excelApp = System.Activator.CreateInstance(Type.GetTypeFromProgID("Excel.Application")) as Microsoft.Office.Interop.Excel.Application;
                 excelApp.Workbooks.Open(path + "/Key design.xlsx");
             }
-            excelApp.Visible=true;
+           // excelApp.Visible=true;
 
             Microsoft.Office.Interop.Excel.Worksheet excelWs = excelApp.ActiveWorkbook.ActiveSheet;
             excelWs.Cells[5,1] = torque;
@@ -209,6 +229,7 @@ namespace GearEditor
         private void btnInputMaterial_Click(object sender, EventArgs e)
         {
             MaterialEditorForm materialEditor = new MaterialEditorForm();
+            materialEditor.menuStripVisible(false);
             if (materialEditor.ShowDialog() == DialogResult.OK)
             {
 
@@ -229,6 +250,7 @@ namespace GearEditor
         private void btnOutputMaterial_Click(object sender, EventArgs e)
         {
             MaterialEditorForm materialEditor = new MaterialEditorForm();
+            materialEditor.menuStripVisible(false);
             if (materialEditor.ShowDialog() == DialogResult.OK)
             {
 
@@ -246,6 +268,10 @@ namespace GearEditor
         }
 
         private void updateGearOnCatia(Gear g, Boolean isInput) {
+            if (isInput)
+                tsStatusLabel.Text = "Updating the input Gear on Catia...";
+            else
+                tsStatusLabel.Text = "Updating the output Gear on Catia...";
             INFITF.Application catiaApp = null;
             try
             {
@@ -322,6 +348,7 @@ namespace GearEditor
         }
 
         private void showGearboxOnCatia(GearBox gb) {
+            tsStatusLabel.Text = "Generating the Gear Box on Catia...";
             INFITF.Application catiaApp = null;
             try
             {
@@ -342,8 +369,9 @@ namespace GearEditor
             KnowledgewareTypeLib.Parameter type = (KnowledgewareTypeLib.Parameter)product.Parameters.GetItem("AxesDistance");
             type.ValuateFromString(gb.AxesDistance + "mm");
 
-         //   product.Update();
-         //   productDoc.Save();
+            product.Update();
+            productDoc.Save();
+            tsStatusLabel.Text = "Generation Complete";
         }
 
         private void updateTreeView(GearBox gb)
@@ -356,6 +384,150 @@ namespace GearEditor
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             propertyGrid1.SelectedObject = treeView1.SelectedNode.Tag;
+        }
+
+        private void numInputTorque_ValueChanged(object sender, EventArgs e)
+        {
+            numTorqueRatio.Value = numOutputTorque.Value / numInputTorque.Value;
+        }
+
+        private void numOutputTorque_ValueChanged(object sender, EventArgs e)
+        {
+            numTorqueRatio.Value = numOutputTorque.Value / numInputTorque.Value;
+        }
+
+        private void btnValidate_Click(object sender, EventArgs e)
+        {
+            Program.gearBoxList.Add(gearBox);
+            Program.gearList.Add(inputGear);
+            Program.gearList.Add(outputGear);
+            Program.shaftList.Add(inputGear.Shaft);
+            Program.shaftList.Add(outputGear.Shaft);
+
+            Database1DataSet1TableAdapters.Shaft1TableAdapter sta = new Database1DataSet1TableAdapters.Shaft1TableAdapter();
+            sta.Insert(inputGear.Shaft.Name, inputGear.Shaft.Diameter, inputGear.Shaft.Material.ID, inputGear.Shaft.KeyCutWidth, inputGear.Shaft.KeyCutHeigth, inputGear.Shaft.KeyCutLength);
+            sta.Insert(outputGear.Shaft.Name, outputGear.Shaft.Diameter, outputGear.Shaft.Material.ID, outputGear.Shaft.KeyCutWidth, outputGear.Shaft.KeyCutHeigth, outputGear.Shaft.KeyCutLength);
+            Database1DataSet1TableAdapters.GearsTableAdapter gta = new Database1DataSet1TableAdapters.GearsTableAdapter();
+            gta.Insert(inputGear.Name, inputGear.Alpha,inputGear.GearModule, inputGear.Material.ID, inputGear.Torque, inputGear.Shaft.ID, inputGear.WantedRadius, inputGear.Z, inputGear.Phi, inputGear.R_base, inputGear.R_foot, inputGear.R_pitch, inputGear.R_top);
+            gta.Insert(outputGear.Name, outputGear.Alpha, outputGear.GearModule, outputGear.Material.ID, outputGear.Torque, outputGear.Shaft.ID, outputGear.WantedRadius, outputGear.Z, outputGear.Phi, outputGear.R_base, outputGear.R_foot, outputGear.R_pitch, outputGear.R_top);
+            Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
+            gbta.Insert(gearBox.Name, gearBox.Alpha, gearBox.AxesDistance, gearBox.GearModule, gearBox.InputTorque, gearBox.OutputTorque, gearBox.TorqueRatio, gearBox.InputGear.ID, gearBox.OutputGear.ID);
+
+            tsStatusLabel.Text = "Gear Box saved !";
+        }
+
+        private void gearBoxEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GearBoxEditorForm gbForm = new GearBoxEditorForm();
+            gbForm.Show(); 
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e) 
+        {
+
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+        }
+
+        private void gearEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GearEditorForm gForm = new GearEditorForm();
+            gForm.Show(); 
+        }
+
+        private void shaftEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShaftEditorForm sForm = new ShaftEditorForm();
+            sForm.Show(); 
+        }
+
+        private void materialEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaterialEditorForm mForm = new MaterialEditorForm();
+            mForm.Show(); 
+        }
+
+        private void GearBoxGenerator_Load(object sender, EventArgs e)
+        {
+
+            // Get the Materials
+            Database1DataSet1TableAdapters.MaterialsTableAdapter mta = new Database1DataSet1TableAdapters.MaterialsTableAdapter(); 
+            Database1DataSet1.MaterialsDataTable MaterialsFromDB = new Database1DataSet1.MaterialsDataTable();
+            mta.Fill(MaterialsFromDB);
+
+            foreach(Database1DataSet1.MaterialsRow row in MaterialsFromDB.Rows){
+                Material mat = new Material();
+                mat.ID = row.ID;
+                mat.Name = row.MaterialName;
+                mat.Density = row.Density;
+                mat.yieldStress = row.YieldStress;
+                mat.youngsModulus = row.YoungsModulus;
+
+                Program.materialList.Add(mat);
+       
+            }
+
+            // Get the Shafts
+            Database1DataSet1TableAdapters.Shaft1TableAdapter sta = new Database1DataSet1TableAdapters.Shaft1TableAdapter();
+            Database1DataSet1.Shaft1DataTable ShaftsFromDB = new Database1DataSet1.Shaft1DataTable();
+            sta.Fill(ShaftsFromDB);
+
+            foreach (Database1DataSet1.Shaft1Row row in ShaftsFromDB.Rows) {
+                Shaft shaft = new Shaft();
+                shaft.ID = row.ID;
+                shaft.Name = row.ShaftName;
+                shaft.Diameter = row.Diameter;
+                shaft.KeyCutHeigth = row.KeyCutHeight;
+                shaft.KeyCutLength = row.KeyCutLenght;
+                shaft.KeyCutWidth = row.KeyCutWidth;
+                shaft.Material = Util.getMaterialById(row.MaterialID);
+            }
+
+            Database1DataSet1TableAdapters.GearsTableAdapter gta = new Database1DataSet1TableAdapters.GearsTableAdapter();
+            Database1DataSet1.GearsDataTable GearsFromDB = new Database1DataSet1.GearsDataTable();
+            gta.Fill(GearsFromDB);
+
+            foreach (Database1DataSet1.GearsRow row in GearsFromDB.Rows)
+            {
+                Gear gear = new Gear();
+                gear.ID = row.ID;
+                gear.Alpha = row.Alpha;
+                gear.GearModule = row.GearModule;
+                gear.Torque = row.Torque;
+                gear.WantedRadius = row.WantedRadius;
+                gear.Name = row.GearName;
+                gear.Z = row.Z;
+                gear.Phi = row.Phi;
+                gear.R_base = row.RBase;
+                gear.R_foot = row.RFoot;
+                gear.R_pitch = row.RPitch;
+                gear.R_top = row.RTop;
+                gear.Material = Util.getMaterialById(row.MaterialID);
+                gear.Shaft = Util.getShaftById(row.ShaftID);
+            }
+
+            Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
+            Database1DataSet1.GearBoxDataTable GearBoxFromDB = new Database1DataSet1.GearBoxDataTable();
+            gbta.Fill(GearBoxFromDB);
+
+            foreach (Database1DataSet1.GearBoxRow row in GearBoxFromDB)
+            {
+                GearBox gb = new GearBox();
+                gb.Name = row.GearBoxName;
+                gb.Alpha = row.Alpha;
+                gb.AxesDistance = row.AxesDistance;
+                gb.GearModule = row.GearModule;
+                gb.InputTorque = row.InputTorque;
+                gb.OutputTorque = row.OutputTorque;
+                gb.TorqueRatio = row.TorqueRatio;
+                gb.InputGear = Util.getGearById(row.InputGear);
+                gb.OutputGear = Util.getGearById(row.OutputGear);
+            }
+
+
         }
 
     }

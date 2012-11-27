@@ -41,6 +41,8 @@ namespace GearEditor
 
             if (gb.Name != "" && gb.InputGear != null && gb.OutputGear != null)
             {
+                Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
+                gbta.Insert(gb.Name, gb.Alpha,gb.AxesDistance,gb.GearModule,gb.InputTorque, gb.OutputTorque, gb.TorqueRatio, gb.InputGear.ID, gb.OutputGear.ID);
                 Program.gearBoxList.Add(gb);
                 DialogResult = DialogResult.OK;
             }
@@ -63,6 +65,7 @@ namespace GearEditor
         private void btnInputGear_Click(object sender, EventArgs e)
         {
             GearEditorForm gearEditor = new GearEditorForm();
+            gearEditor.menuStripVisible(false);
             if (gearEditor.ShowDialog() == DialogResult.OK)
             {
                 // Ajouter le nom du gear
@@ -83,6 +86,7 @@ namespace GearEditor
         private void btnOutputGear_Click(object sender, EventArgs e)
         {
             GearEditorForm gearEditor = new GearEditorForm();
+            gearEditor.menuStripVisible(false);
             if (gearEditor.ShowDialog() == DialogResult.OK)
             {
                 // Ajouter le nom du gear

@@ -11,7 +11,12 @@ namespace GearEditor
         Double _density;
         Double _yieldStress;
         Double _youngsModulus;
+        int _id;
 
+        public int ID {
+            get { return _id; }
+            set { _id = value; } 
+        }
         public String Name
         {
             get { return _name; }

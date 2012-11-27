@@ -8,6 +8,7 @@ namespace GearEditor
     public class Gear
     {
         //User input
+        int _id;
         Double _alpha;
         Double _gearModule;
         Material _material;
@@ -23,6 +24,11 @@ namespace GearEditor
         Double _r_foot;
         Double _r_pitch;
         Double _r_top;
+
+        public int ID {
+            get { return _id ;}
+            set { _id = value;}
+        }
 
         public Double Alpha
         {
