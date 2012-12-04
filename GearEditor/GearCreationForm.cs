@@ -79,6 +79,8 @@ namespace GearEditor
             {
                 Database1DataSet1TableAdapters.GearsTableAdapter gta = new Database1DataSet1TableAdapters.GearsTableAdapter();
                 gta.Insert(g.Name, g.Alpha, g.GearModule, g.Material.ID, g.Torque, g.Shaft.ID,g.WantedRadius, 0,0,0,0,0,0);
+                g.ID = (int)gta.getID(g.Name, g.Alpha, g.GearModule, g.Material.ID, g.Torque, g.Shaft.ID, 0, 0, 0, 0, 0, 0, 0);
+
                 Program.gearList.Add(g);
                 DialogResult = DialogResult.OK;
             }

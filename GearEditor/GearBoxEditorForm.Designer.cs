@@ -45,6 +45,9 @@
             this.gearEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shaftEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,7 +78,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel2.Controls.Add(this.btnSelect);
-            this.splitContainer1.Size = new System.Drawing.Size(423, 413);
+            this.splitContainer1.Size = new System.Drawing.Size(423, 437);
             this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -85,7 +88,7 @@
             this.btnEdit.Enabled = false;
             this.btnEdit.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.DimGray;
-            this.btnEdit.Location = new System.Drawing.Point(136, 371);
+            this.btnEdit.Location = new System.Drawing.Point(136, 395);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.btnEdit.Size = new System.Drawing.Size(29, 29);
@@ -93,6 +96,7 @@
             this.btnEdit.Text = "✎";
             this.btnEdit.UseCompatibleTextRendering = true;
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnRemove
             // 
@@ -100,7 +104,7 @@
             this.btnRemove.Enabled = false;
             this.btnRemove.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRemove.Location = new System.Drawing.Point(101, 371);
+            this.btnRemove.Location = new System.Drawing.Point(101, 395);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.btnRemove.Size = new System.Drawing.Size(29, 29);
@@ -115,7 +119,7 @@
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAdd.Location = new System.Drawing.Point(66, 371);
+            this.btnAdd.Location = new System.Drawing.Point(66, 395);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(29, 29);
@@ -143,7 +147,7 @@
             this.listGearBox.FormattingEnabled = true;
             this.listGearBox.Location = new System.Drawing.Point(8, 25);
             this.listGearBox.Name = "listGearBox";
-            this.listGearBox.Size = new System.Drawing.Size(157, 329);
+            this.listGearBox.Size = new System.Drawing.Size(157, 368);
             this.listGearBox.TabIndex = 0;
             this.listGearBox.ValueMember = "GearBox";
             this.listGearBox.SelectedIndexChanged += new System.EventHandler(this.listGearBox_SelectedIndexChanged);
@@ -164,8 +168,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.propertyGridGearBox);
-            this.splitContainer2.Size = new System.Drawing.Size(252, 372);
-            this.splitContainer2.SplitterDistance = 118;
+            this.splitContainer2.Size = new System.Drawing.Size(252, 396);
+            this.splitContainer2.SplitterDistance = 125;
             this.splitContainer2.TabIndex = 5;
             // 
             // treeViewGearBox
@@ -175,7 +179,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewGearBox.Location = new System.Drawing.Point(3, 3);
             this.treeViewGearBox.Name = "treeViewGearBox";
-            this.treeViewGearBox.Size = new System.Drawing.Size(246, 112);
+            this.treeViewGearBox.Size = new System.Drawing.Size(246, 119);
             this.treeViewGearBox.TabIndex = 0;
             this.treeViewGearBox.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewGearBox_AfterSelect);
             // 
@@ -187,13 +191,13 @@
             this.propertyGridGearBox.Enabled = false;
             this.propertyGridGearBox.Location = new System.Drawing.Point(4, 3);
             this.propertyGridGearBox.Name = "propertyGridGearBox";
-            this.propertyGridGearBox.Size = new System.Drawing.Size(245, 244);
+            this.propertyGridGearBox.Size = new System.Drawing.Size(245, 261);
             this.propertyGridGearBox.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(164, 378);
+            this.btnCancel.Location = new System.Drawing.Point(164, 402);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -204,7 +208,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(77, 378);
+            this.btnSelect.Location = new System.Drawing.Point(77, 402);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 2;
@@ -215,7 +219,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
-            this.goToToolStripMenuItem});
+            this.goToToolStripMenuItem,
+            this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(423, 24);
@@ -241,29 +246,52 @@
             // gearEditorToolStripMenuItem
             // 
             this.gearEditorToolStripMenuItem.Name = "gearEditorToolStripMenuItem";
-            this.gearEditorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gearEditorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.gearEditorToolStripMenuItem.Text = "Gear Editor";
             this.gearEditorToolStripMenuItem.Click += new System.EventHandler(this.gearEditorToolStripMenuItem_Click);
             // 
             // shaftEditorToolStripMenuItem
             // 
             this.shaftEditorToolStripMenuItem.Name = "shaftEditorToolStripMenuItem";
-            this.shaftEditorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.shaftEditorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.shaftEditorToolStripMenuItem.Text = "Shaft Editor";
             this.shaftEditorToolStripMenuItem.Click += new System.EventHandler(this.shaftEditorToolStripMenuItem_Click);
             // 
             // materialEditorToolStripMenuItem
             // 
             this.materialEditorToolStripMenuItem.Name = "materialEditorToolStripMenuItem";
-            this.materialEditorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.materialEditorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.materialEditorToolStripMenuItem.Text = "Material Editor";
             this.materialEditorToolStripMenuItem.Click += new System.EventHandler(this.materialEditorToolStripMenuItem_Click);
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.saveXMLToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save...";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // saveXMLToolStripMenuItem
+            // 
+            this.saveXMLToolStripMenuItem.Name = "saveXMLToolStripMenuItem";
+            this.saveXMLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveXMLToolStripMenuItem.Text = "Save XML...";
+            this.saveXMLToolStripMenuItem.Click += new System.EventHandler(this.saveXMLToolStripMenuItem_Click);
             // 
             // GearBoxEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 437);
+            this.ClientSize = new System.Drawing.Size(423, 461);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -305,6 +333,15 @@
         private System.Windows.Forms.ToolStripMenuItem gearEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem shaftEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem materialEditorToolStripMenuItem;
+
+        public void hideSelect()
+        {
+            this.btnSelect.Hide();
+        }
+
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveXMLToolStripMenuItem;
     }
 }
 

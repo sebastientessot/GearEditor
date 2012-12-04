@@ -5,6 +5,7 @@ using System.Text;
 
 namespace GearEditor
 {
+    [Serializable]
     public class Gear
     {
         //User input

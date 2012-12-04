@@ -82,5 +82,89 @@ namespace GearEditor
             }
             return null;
         }
+
+        public static List<int> listOfGearIds(int materialID, List<int> shaftIds, Database1DataSet1TableAdapters.GearsTableAdapter gta)
+        {
+            List<int> gearIds = new List<int>();
+            Database1DataSet1.GearsDataTable gearTable = new Database1DataSet1.GearsDataTable();
+
+            // beacause of the Material
+            gearTable = gta.GetDataByMaterialID(materialID);
+            foreach (Database1DataSet1.GearsRow row in gearTable)
+            {
+                int id = row.ID;
+                gearIds.Add(id);
+            }
+
+            // because of the shaft
+            foreach (int shaft in shaftIds)
+            {
+                gearTable = gta.GetDataByShaftID(shaft);
+                foreach (Database1DataSet1.GearsRow row in gearTable)
+                {
+                    int id = row.ID;
+                    gearIds.Add(id);
+                }
+            }
+
+            return gearIds;
+        }
+
+        public static List<int> listOfGearIds(int shaftIds, Database1DataSet1TableAdapters.GearsTableAdapter gta)
+        {
+            List<int> gearIds = new List<int>();
+
+            Database1DataSet1.GearsDataTable gearTable = new Database1DataSet1.GearsDataTable();
+            gearTable = gta.GetDataByShaftID(shaftIds);
+            foreach (Database1DataSet1.GearsRow row in gearTable)
+            {
+                int id = row.ID;
+                gearIds.Add(id);
+            }
+
+            return gearIds;
+        }
+
+
+        public static List<int> listOfShaftIds(int materialID, Database1DataSet1TableAdapters.Shaft1TableAdapter sta)
+        {
+            List<int> shaftIds = new List<int>();
+
+            Database1DataSet1.Shaft1DataTable shaftTable = new Database1DataSet1.Shaft1DataTable();
+            shaftTable = sta.GetDataByMaterialID(materialID);
+            foreach (Database1DataSet1.Shaft1Row row in shaftTable)
+            {
+                int id = row.ID;
+                shaftIds.Add(id);
+            }
+
+            return shaftIds;
+        }
+
+        public static void refreshGearBoxList()
+        {
+            Program.gearBoxList.Clear();
+
+            Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
+            Database1DataSet1.GearBoxDataTable GearBoxFromDB = new Database1DataSet1.GearBoxDataTable();
+            gbta.Fill(GearBoxFromDB);
+
+            foreach (Database1DataSet1.GearBoxRow row in GearBoxFromDB)
+            {
+                GearBox gb = new GearBox();
+                gb.ID = row.ID;
+                gb.Name = row.GearBoxName;
+                gb.Alpha = row.Alpha;
+                gb.AxesDistance = row.AxesDistance;
+                gb.GearModule = row.GearModule;
+                gb.InputTorque = row.InputTorque;
+                gb.OutputTorque = row.OutputTorque;
+                gb.TorqueRatio = row.TorqueRatio;
+                gb.InputGear = Util.getGearById(row.InputGear);
+                gb.OutputGear = Util.getGearById(row.OutputGear);
+
+                Program.gearBoxList.Add(gb);
+            }
+        }
     }
 }

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace GearEditor
 {
-    class GearBox
+    [Serializable]
+    public class GearBox
     {
         private String _name;
+        private int _id;
         private Double _alpha;
         private Double _axesDistance;
         private Double _gearModule;
@@ -22,6 +24,11 @@ namespace GearEditor
         {
             get { return _name; }
             set { _name = value; }
+        }
+
+        public int ID {
+            get { return _id; } 
+            set { _id = value; } 
         }
 
         public Double Alpha

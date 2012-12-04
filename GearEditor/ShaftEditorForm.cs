@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Soap;
+
 
 namespace GearEditor
 {
@@ -71,43 +75,61 @@ namespace GearEditor
         private void refreshList()
         {
             listShaft.Items.Clear();
-            foreach (Shaft gb in Program.shaftList)
+            foreach (Shaft s in Program.shaftList)
             {
-                listShaft.Items.Add(gb);
+                listShaft.Items.Add(s);
             }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (listShaft.SelectedItems.Count > 0)
+            if (DialogResult.OK == MessageBox.Show("You may delete Gears and Gear Boxes associates. Do you want to continue ?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
             {
-                Shaft shaftToDelete = new Shaft();
-                shaftToDelete = (Shaft)listShaft.SelectedItems[0];
-                foreach (Shaft s in Program.shaftList)
+                if (listShaft.SelectedItems.Count > 0)
                 {
-                    if (s.Equals(shaftToDelete))
+                    Shaft shaftToDelete = new Shaft();
+                    shaftToDelete = (Shaft)listShaft.SelectedItems[0];
+
+                    Program.shaftList.Remove(shaftToDelete);
+                    Database1DataSet1TableAdapters.Shaft1TableAdapter sta = new Database1DataSet1TableAdapters.Shaft1TableAdapter();
+                    Database1DataSet1TableAdapters.GearsTableAdapter gta = new Database1DataSet1TableAdapters.GearsTableAdapter();
+                    Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
+
+                    List<int> gearIds = Util.listOfGearIds(shaftToDelete.ID, gta);
+                    try
                     {
-                        shaftToDelete = s;
+                        foreach (int g in gearIds)
+                        {
+                            gbta.DeleteInputGearQuery(g);
+                            gbta.DeleteOutputGearQuery(g);
+                            Gear gear = Util.getGearById(g);
+                            Program.gearList.Remove(gear);
+                        }
+
+                        gta.DeleteShaftQuery(shaftToDelete.ID);
+                        sta.Delete(shaftToDelete.ID, shaftToDelete.Name, shaftToDelete.Diameter, shaftToDelete.Material.ID, shaftToDelete.KeyCutWidth, shaftToDelete.KeyCutHeigth, shaftToDelete.KeyCutLength);
+                        Util.refreshGearBoxList();
                     }
+                    catch (Exception ex) { }
                 }
-                Program.shaftList.Remove(shaftToDelete);
+                refreshList();
+                treeViewShaft.Nodes.Clear();
+                propertyGridShaft.SelectedObject = null;
+                btnRemove.Enabled = false;
+                btnEdit.Enabled = false;
+                btnSelect.Enabled = false;
             }
-            refreshList();
-            treeViewShaft.Nodes.Clear();
-            propertyGridShaft.SelectedObject = null;
-            btnRemove.Enabled = false;
-            btnEdit.Enabled = false;
-            btnSelect.Enabled = false;
         }
 
         private void ShaftEditorForm_Load(object sender, EventArgs e)
         {
-
+            refreshList();
         }
 
         private void gearBoxEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GearBoxEditorForm gbForm = new GearBoxEditorForm();
+            gbForm.hideSelect();
             gbForm.Show();
             this.Close();
         }
@@ -115,6 +137,7 @@ namespace GearEditor
         private void gearEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GearEditorForm gForm = new GearEditorForm();
+            gForm.hideSelect();
             gForm.Show();
             this.Close();
         }
@@ -122,6 +145,7 @@ namespace GearEditor
         private void materialEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MaterialEditorForm mForm = new MaterialEditorForm();
+            mForm.hideSelect();
             mForm.Show();
             this.Close();
         }
@@ -129,6 +153,53 @@ namespace GearEditor
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (propertyGridShaft.Enabled == false)
+            {
+                propertyGridShaft.Enabled = true;
+            }
+            else
+            {
+                propertyGridShaft.Enabled = false;
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog savedlg = new SaveFileDialog();
+            if (savedlg.ShowDialog() == DialogResult.OK)
+            {
+
+                StreamWriter sw = new StreamWriter(savedlg.FileName);
+                foreach (Shaft s in Program.shaftList)
+                {
+                    sw.WriteLine(s.Name);
+                    sw.WriteLine(s.Diameter);
+                    sw.WriteLine(s.KeyCutWidth);
+                    sw.WriteLine(s.KeyCutLength);
+                    sw.WriteLine(s.KeyCutHeigth);
+                    sw.WriteLine(s.Material.Name);
+                }
+                sw.Close();
+            }
+        }
+
+        private void saveXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog savedlg = new SaveFileDialog();
+            if (savedlg.ShowDialog() == DialogResult.OK)
+            {
+                FileStream fs = new FileStream(savedlg.FileName, FileMode.Create);
+
+                XmlSerializer xmls = new XmlSerializer(typeof(List<Shaft>));
+                xmls.Serialize(fs, Program.shaftList);
+
+                fs.Close();
+            }
+
         }
     }
 }

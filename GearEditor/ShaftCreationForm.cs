@@ -69,6 +69,7 @@ namespace GearEditor
             {
                 Database1DataSet1TableAdapters.Shaft1TableAdapter sta = new Database1DataSet1TableAdapters.Shaft1TableAdapter();
                 sta.Insert(s.Name, s.Diameter, s.Material.ID, s.KeyCutWidth, s.KeyCutHeigth, s.KeyCutLength);
+                s.ID = (int)sta.getID(s.Name, s.Diameter, s.Material.ID, s.KeyCutWidth, s.KeyCutHeigth, s.KeyCutLength);
                 Program.shaftList.Add(s);
                 DialogResult = DialogResult.OK;
             }

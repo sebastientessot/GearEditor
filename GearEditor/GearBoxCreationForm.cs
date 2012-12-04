@@ -43,6 +43,7 @@ namespace GearEditor
             {
                 Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
                 gbta.Insert(gb.Name, gb.Alpha,gb.AxesDistance,gb.GearModule,gb.InputTorque, gb.OutputTorque, gb.TorqueRatio, gb.InputGear.ID, gb.OutputGear.ID);
+                gb.ID = (int)gbta.getID(gb.Name, gb.Alpha, gb.AxesDistance, gb.GearModule, gb.InputTorque, gb.OutputTorque, gb.TorqueRatio, gb.InputGear.ID, gb.OutputGear.ID);
                 Program.gearBoxList.Add(gb);
                 DialogResult = DialogResult.OK;
             }

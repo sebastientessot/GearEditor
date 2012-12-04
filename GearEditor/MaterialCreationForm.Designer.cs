@@ -110,6 +110,11 @@
             // numDensity
             // 
             this.numDensity.Location = new System.Drawing.Point(101, 46);
+            this.numDensity.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.numDensity.Name = "numDensity";
             this.numDensity.Size = new System.Drawing.Size(71, 20);
             this.numDensity.TabIndex = 8;
@@ -117,6 +122,11 @@
             // numYieldStress
             // 
             this.numYieldStress.Location = new System.Drawing.Point(101, 75);
+            this.numYieldStress.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
             this.numYieldStress.Name = "numYieldStress";
             this.numYieldStress.Size = new System.Drawing.Size(71, 20);
             this.numYieldStress.TabIndex = 9;
@@ -124,6 +134,11 @@
             // numYoungModulus
             // 
             this.numYoungModulus.Location = new System.Drawing.Point(101, 105);
+            this.numYoungModulus.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
             this.numYoungModulus.Name = "numYoungModulus";
             this.numYoungModulus.Size = new System.Drawing.Size(71, 20);
             this.numYoungModulus.TabIndex = 10;

@@ -398,20 +398,31 @@ namespace GearEditor
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
+
+            Database1DataSet1TableAdapters.Shaft1TableAdapter sta = new Database1DataSet1TableAdapters.Shaft1TableAdapter();
+            sta.Insert(inputGear.Shaft.Name, inputGear.Shaft.Diameter, inputGear.Shaft.Material.ID, inputGear.Shaft.KeyCutWidth, inputGear.Shaft.KeyCutHeigth, inputGear.Shaft.KeyCutLength);
+            sta.Insert(outputGear.Shaft.Name, outputGear.Shaft.Diameter, outputGear.Shaft.Material.ID, outputGear.Shaft.KeyCutWidth, outputGear.Shaft.KeyCutHeigth, outputGear.Shaft.KeyCutLength);
+
+            inputGear.Shaft.ID = (int)sta.getID(inputGear.Shaft.Name, inputGear.Shaft.Diameter, inputGear.Shaft.Material.ID, inputGear.Shaft.KeyCutWidth, inputGear.Shaft.KeyCutHeigth, inputGear.Shaft.KeyCutLength);
+            outputGear.Shaft.ID = (int)sta.getID(outputGear.Shaft.Name, outputGear.Shaft.Diameter, outputGear.Shaft.Material.ID, outputGear.Shaft.KeyCutWidth, outputGear.Shaft.KeyCutHeigth, outputGear.Shaft.KeyCutLength);
+
+            Database1DataSet1TableAdapters.GearsTableAdapter gta = new Database1DataSet1TableAdapters.GearsTableAdapter();
+            gta.Insert(inputGear.Name, inputGear.Alpha,inputGear.GearModule, inputGear.Material.ID, inputGear.Torque, inputGear.Shaft.ID, inputGear.WantedRadius, inputGear.Z, inputGear.Phi, inputGear.R_base, inputGear.R_foot, inputGear.R_pitch, inputGear.R_top);
+            gta.Insert(outputGear.Name, outputGear.Alpha, outputGear.GearModule, outputGear.Material.ID, outputGear.Torque, outputGear.Shaft.ID, outputGear.WantedRadius, outputGear.Z, outputGear.Phi, outputGear.R_base, outputGear.R_foot, outputGear.R_pitch, outputGear.R_top);
+
+            inputGear.ID = (int)gta.getID(inputGear.Name, inputGear.Alpha, inputGear.GearModule, inputGear.Material.ID, inputGear.Torque, inputGear.Shaft.ID, inputGear.WantedRadius, inputGear.Z, inputGear.Phi, inputGear.R_base, inputGear.R_foot, inputGear.R_pitch, inputGear.R_top);
+            outputGear.ID = (int)gta.getID(outputGear.Name, outputGear.Alpha, outputGear.GearModule, outputGear.Material.ID, outputGear.Torque, outputGear.Shaft.ID, outputGear.WantedRadius, outputGear.Z, outputGear.Phi, outputGear.R_base, outputGear.R_foot, outputGear.R_pitch, outputGear.R_top);
+
+            Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
+            gbta.Insert(gearBox.Name, gearBox.Alpha, gearBox.AxesDistance, gearBox.GearModule, gearBox.InputTorque, gearBox.OutputTorque, gearBox.TorqueRatio, gearBox.InputGear.ID, gearBox.OutputGear.ID);
+
+            gearBox.ID = (int)gbta.getID(gearBox.Name, gearBox.Alpha, gearBox.AxesDistance, gearBox.GearModule, gearBox.InputTorque, gearBox.OutputTorque, gearBox.TorqueRatio, gearBox.InputGear.ID, gearBox.OutputGear.ID);
+
             Program.gearBoxList.Add(gearBox);
             Program.gearList.Add(inputGear);
             Program.gearList.Add(outputGear);
             Program.shaftList.Add(inputGear.Shaft);
             Program.shaftList.Add(outputGear.Shaft);
-
-            Database1DataSet1TableAdapters.Shaft1TableAdapter sta = new Database1DataSet1TableAdapters.Shaft1TableAdapter();
-            sta.Insert(inputGear.Shaft.Name, inputGear.Shaft.Diameter, inputGear.Shaft.Material.ID, inputGear.Shaft.KeyCutWidth, inputGear.Shaft.KeyCutHeigth, inputGear.Shaft.KeyCutLength);
-            sta.Insert(outputGear.Shaft.Name, outputGear.Shaft.Diameter, outputGear.Shaft.Material.ID, outputGear.Shaft.KeyCutWidth, outputGear.Shaft.KeyCutHeigth, outputGear.Shaft.KeyCutLength);
-            Database1DataSet1TableAdapters.GearsTableAdapter gta = new Database1DataSet1TableAdapters.GearsTableAdapter();
-            gta.Insert(inputGear.Name, inputGear.Alpha,inputGear.GearModule, inputGear.Material.ID, inputGear.Torque, inputGear.Shaft.ID, inputGear.WantedRadius, inputGear.Z, inputGear.Phi, inputGear.R_base, inputGear.R_foot, inputGear.R_pitch, inputGear.R_top);
-            gta.Insert(outputGear.Name, outputGear.Alpha, outputGear.GearModule, outputGear.Material.ID, outputGear.Torque, outputGear.Shaft.ID, outputGear.WantedRadius, outputGear.Z, outputGear.Phi, outputGear.R_base, outputGear.R_foot, outputGear.R_pitch, outputGear.R_top);
-            Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
-            gbta.Insert(gearBox.Name, gearBox.Alpha, gearBox.AxesDistance, gearBox.GearModule, gearBox.InputTorque, gearBox.OutputTorque, gearBox.TorqueRatio, gearBox.InputGear.ID, gearBox.OutputGear.ID);
 
             tsStatusLabel.Text = "Gear Box saved !";
         }
@@ -419,6 +430,7 @@ namespace GearEditor
         private void gearBoxEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GearBoxEditorForm gbForm = new GearBoxEditorForm();
+            gbForm.hideSelect(); 
             gbForm.Show(); 
         }
 
@@ -435,18 +447,21 @@ namespace GearEditor
         private void gearEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GearEditorForm gForm = new GearEditorForm();
+            gForm.hideSelect();
             gForm.Show(); 
         }
 
         private void shaftEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShaftEditorForm sForm = new ShaftEditorForm();
+            sForm.hideSelect();
             sForm.Show(); 
         }
 
         private void materialEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MaterialEditorForm mForm = new MaterialEditorForm();
+            mForm.hideSelect(); 
             mForm.Show(); 
         }
 
@@ -467,7 +482,7 @@ namespace GearEditor
                 mat.youngsModulus = row.YoungsModulus;
 
                 Program.materialList.Add(mat);
-       
+
             }
 
             // Get the Shafts
@@ -484,6 +499,8 @@ namespace GearEditor
                 shaft.KeyCutLength = row.KeyCutLenght;
                 shaft.KeyCutWidth = row.KeyCutWidth;
                 shaft.Material = Util.getMaterialById(row.MaterialID);
+
+                Program.shaftList.Add(shaft);
             }
 
             Database1DataSet1TableAdapters.GearsTableAdapter gta = new Database1DataSet1TableAdapters.GearsTableAdapter();
@@ -507,27 +524,11 @@ namespace GearEditor
                 gear.R_top = row.RTop;
                 gear.Material = Util.getMaterialById(row.MaterialID);
                 gear.Shaft = Util.getShaftById(row.ShaftID);
+
+                Program.gearList.Add(gear);
             }
 
-            Database1DataSet1TableAdapters.GearBoxTableAdapter gbta = new Database1DataSet1TableAdapters.GearBoxTableAdapter();
-            Database1DataSet1.GearBoxDataTable GearBoxFromDB = new Database1DataSet1.GearBoxDataTable();
-            gbta.Fill(GearBoxFromDB);
-
-            foreach (Database1DataSet1.GearBoxRow row in GearBoxFromDB)
-            {
-                GearBox gb = new GearBox();
-                gb.Name = row.GearBoxName;
-                gb.Alpha = row.Alpha;
-                gb.AxesDistance = row.AxesDistance;
-                gb.GearModule = row.GearModule;
-                gb.InputTorque = row.InputTorque;
-                gb.OutputTorque = row.OutputTorque;
-                gb.TorqueRatio = row.TorqueRatio;
-                gb.InputGear = Util.getGearById(row.InputGear);
-                gb.OutputGear = Util.getGearById(row.OutputGear);
-            }
-
-
+            Util.refreshGearBoxList();
         }
 
     }
