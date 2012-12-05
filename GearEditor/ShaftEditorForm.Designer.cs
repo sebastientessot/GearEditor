@@ -193,6 +193,7 @@
             this.propertyGridShaft.Name = "propertyGridShaft";
             this.propertyGridShaft.Size = new System.Drawing.Size(245, 219);
             this.propertyGridShaft.TabIndex = 0;
+            this.propertyGridShaft.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGridShaft_PropertyValueChanged);
             // 
             // btnCancel
             // 
@@ -280,14 +281,14 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.saveToolStripMenuItem.Text = "Save...";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveXMLToolStripMenuItem
             // 
             this.saveXMLToolStripMenuItem.Name = "saveXMLToolStripMenuItem";
-            this.saveXMLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveXMLToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.saveXMLToolStripMenuItem.Text = "Save XML...";
             this.saveXMLToolStripMenuItem.Click += new System.EventHandler(this.saveXMLToolStripMenuItem_Click);
             // 

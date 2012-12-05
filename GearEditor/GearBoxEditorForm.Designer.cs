@@ -78,7 +78,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel2.Controls.Add(this.btnSelect);
-            this.splitContainer1.Size = new System.Drawing.Size(423, 437);
+            this.splitContainer1.Size = new System.Drawing.Size(423, 548);
             this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -88,7 +88,7 @@
             this.btnEdit.Enabled = false;
             this.btnEdit.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.DimGray;
-            this.btnEdit.Location = new System.Drawing.Point(136, 395);
+            this.btnEdit.Location = new System.Drawing.Point(136, 506);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.btnEdit.Size = new System.Drawing.Size(29, 29);
@@ -104,7 +104,7 @@
             this.btnRemove.Enabled = false;
             this.btnRemove.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRemove.Location = new System.Drawing.Point(101, 395);
+            this.btnRemove.Location = new System.Drawing.Point(101, 506);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.btnRemove.Size = new System.Drawing.Size(29, 29);
@@ -119,7 +119,7 @@
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAdd.Location = new System.Drawing.Point(66, 395);
+            this.btnAdd.Location = new System.Drawing.Point(66, 506);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(29, 29);
@@ -147,7 +147,7 @@
             this.listGearBox.FormattingEnabled = true;
             this.listGearBox.Location = new System.Drawing.Point(8, 25);
             this.listGearBox.Name = "listGearBox";
-            this.listGearBox.Size = new System.Drawing.Size(157, 368);
+            this.listGearBox.Size = new System.Drawing.Size(157, 472);
             this.listGearBox.TabIndex = 0;
             this.listGearBox.ValueMember = "GearBox";
             this.listGearBox.SelectedIndexChanged += new System.EventHandler(this.listGearBox_SelectedIndexChanged);
@@ -168,8 +168,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.propertyGridGearBox);
-            this.splitContainer2.Size = new System.Drawing.Size(252, 396);
-            this.splitContainer2.SplitterDistance = 125;
+            this.splitContainer2.Size = new System.Drawing.Size(252, 507);
+            this.splitContainer2.SplitterDistance = 112;
             this.splitContainer2.TabIndex = 5;
             // 
             // treeViewGearBox
@@ -179,7 +179,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewGearBox.Location = new System.Drawing.Point(3, 3);
             this.treeViewGearBox.Name = "treeViewGearBox";
-            this.treeViewGearBox.Size = new System.Drawing.Size(246, 119);
+            this.treeViewGearBox.Size = new System.Drawing.Size(246, 106);
             this.treeViewGearBox.TabIndex = 0;
             this.treeViewGearBox.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewGearBox_AfterSelect);
             // 
@@ -191,13 +191,15 @@
             this.propertyGridGearBox.Enabled = false;
             this.propertyGridGearBox.Location = new System.Drawing.Point(4, 3);
             this.propertyGridGearBox.Name = "propertyGridGearBox";
-            this.propertyGridGearBox.Size = new System.Drawing.Size(245, 261);
+            this.propertyGridGearBox.Size = new System.Drawing.Size(245, 385);
             this.propertyGridGearBox.TabIndex = 0;
+            this.propertyGridGearBox.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGridGearBox_PropertyValueChanged);
+            this.propertyGridGearBox.Click += new System.EventHandler(this.propertyGridGearBox_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(164, 402);
+            this.btnCancel.Location = new System.Drawing.Point(164, 513);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -208,7 +210,7 @@
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(77, 402);
+            this.btnSelect.Location = new System.Drawing.Point(77, 513);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 23);
             this.btnSelect.TabIndex = 2;
@@ -276,14 +278,14 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.saveToolStripMenuItem.Text = "Save...";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveXMLToolStripMenuItem
             // 
             this.saveXMLToolStripMenuItem.Name = "saveXMLToolStripMenuItem";
-            this.saveXMLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveXMLToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.saveXMLToolStripMenuItem.Text = "Save XML...";
             this.saveXMLToolStripMenuItem.Click += new System.EventHandler(this.saveXMLToolStripMenuItem_Click);
             // 
@@ -291,7 +293,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 461);
+            this.ClientSize = new System.Drawing.Size(423, 572);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

@@ -178,5 +178,22 @@ namespace GearEditor
                 fs.Close();
             }
         }
+
+        private void propertyGridGearBox_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void propertyGridGearBox_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            if (listGearBox.SelectedItems.Count > 0)
+            {
+                treeViewGearBox.Nodes.Clear();
+                treeViewGearBox.Nodes.Add(Util.fillTreeView(listGearBox.SelectedItems[0]));
+                propertyGridGearBox.SelectedObject = listGearBox.SelectedItems[0];
+                btnEdit.Enabled = true;
+                btnRemove.Enabled = true;
+            }
+        }
     }
 }

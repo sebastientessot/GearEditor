@@ -81,7 +81,7 @@ namespace GearEditor
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == MessageBox.Show("You may delete the Shafts, Gears and Gear Boxes associates. Do you want to continue ?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
+            if (DialogResult.OK == MessageBox.Show("You may delete the Shafts, Gears and Gear Boxes associated. Do you want to continue ?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
             {
                 if (listMaterial.SelectedItems.Count > 0)
                 {
@@ -249,6 +249,10 @@ namespace GearEditor
             {
                 propertyGridMaterial.Enabled = false;
             }
+        }
+
+        private void propertyGridMaterial_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
         }
     }
 }

@@ -44,7 +44,7 @@ namespace GearEditor
             btnValidate.Visible = false;
             
             if (txtName.Text == "")
-               MessageBox.Show("You have to add a Name to your InputGear", "Impossible to generate a GearBox ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               MessageBox.Show("You have to add a Name to your Gear Box", "Impossible to generate a GearBox ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (txtInputMaterial.Tag == null)
                 MessageBox.Show("You have to add a Material to your InputGear", "Impossible to generate a GearBox", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (txtOutputMaterial.Tag == null)
@@ -150,8 +150,6 @@ namespace GearEditor
             gear.R_top = Convert.ToDouble(value);
 
             gear.Shaft = createShaft(gear.Material, gear.Torque, isInput );
-
-       
         }
 
         private Shaft createShaft(Material material, Double torque, bool isInput) {
@@ -531,5 +529,14 @@ namespace GearEditor
             Util.refreshGearBoxList();
         }
 
+        private void propertyGrid1_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            updateTreeView(gearBox);
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            updateTreeView(gearBox);
+        }
     }
 }

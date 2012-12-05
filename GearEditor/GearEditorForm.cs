@@ -143,7 +143,7 @@ namespace GearEditor
 
         private void btnRemove_Click_1(object sender, EventArgs e)
         {
-            if (DialogResult.OK == MessageBox.Show("You may delete Gear Boxes associates. Do you want to continue ?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
+            if (DialogResult.OK == MessageBox.Show("You may delete Gear Boxes associated. Do you want to continue ?", "Caution", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
             {
                 if (listGear.SelectedItems.Count > 0)
                 {
@@ -225,6 +225,18 @@ namespace GearEditor
                 fs.Close();
             }
 
+        }
+
+        private void propertyGridGear_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            if (listGear.SelectedItems.Count > 0)
+            {
+                treeViewGear.Nodes.Clear();
+                treeViewGear.Nodes.Add(Util.fillTreeView(listGear.SelectedItems[0]));
+                propertyGridGear.SelectedObject = listGear.SelectedItems[0];
+                btnEdit.Enabled = true;
+                btnRemove.Enabled = true;
+            }
         }
     }
 }
